@@ -10,8 +10,6 @@ public class PreviewObjectCheck : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enter collide");
-        
         if (((1 << other.gameObject.layer) & invalidLayers) != 0)
         {
             collidingObjects.Add(other);
