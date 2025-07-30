@@ -6,11 +6,24 @@ public class FollowPointsAndMove : MonoBehaviour
 
     [SerializeField] float distanceToChangePoint = 0.005f;
 
-    [SerializeField] float movementSpeed = 1f;
+    [SerializeField] float currentMovementSpeed = 5f;
 
-    [SerializeField] float rotateSpeed = 1f;
+    float deffaultMovementSpeed = 1f;
+
+    [SerializeField] float currentRotateSpeed = 15f;
+
+    float deffaultRotateSpeed = 1f;
 
     private int currentIndex = 0;
+
+    public int ammountOfLapsFinished = 0;
+
+    void Start()
+    {
+        //Initialize variables
+        deffaultMovementSpeed = currentMovementSpeed;
+        deffaultRotateSpeed = currentRotateSpeed;
+    }
 
     void Update()
     {
@@ -22,11 +35,11 @@ public class FollowPointsAndMove : MonoBehaviour
     {
         //Move 
         Vector3 movementDirection = Vector3.Normalize(pointsArray[currentIndex].position - this.transform.position);
-        this.transform.position += movementDirection * movementSpeed * Time.deltaTime;
+        this.transform.position += movementDirection * currentMovementSpeed * Time.deltaTime;
 
         //Rotate
         Quaternion targetRotation = Quaternion.LookRotation(movementDirection, this.transform.up);
-        this.transform.rotation = Quaternion.Lerp(this.transform.rotation, targetRotation, rotateSpeed * Time.deltaTime);
+        this.transform.rotation = Quaternion.Lerp(this.transform.rotation, targetRotation, currentRotateSpeed * Time.deltaTime);
     }
 
     //Check if shoud change point and do it
@@ -40,6 +53,7 @@ public class FollowPointsAndMove : MonoBehaviour
             {
                 //If this is true finished the current lap and start over
                 currentIndex = 0;
+                FinishedCurrentLap();
             }
             else
             {
@@ -47,5 +61,11 @@ public class FollowPointsAndMove : MonoBehaviour
                 currentIndex++;
             }
         }
+    }
+
+    private void FinishedCurrentLap()
+    {
+        ammountOfLapsFinished++;
+
     }
 }

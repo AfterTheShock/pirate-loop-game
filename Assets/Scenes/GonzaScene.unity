@@ -9703,8 +9703,8 @@ MonoBehaviour:
   - {fileID: 362469140}
   - {fileID: 640124462}
   distanceToChangePoint: 0.25
-  movementSpeed: 5
-  rotateSpeed: 15
+  currentMovementSpeed: 5
+  currentRotateSpeed: 15
 --- !u!1001 &2071028130
 PrefabInstance:
   m_ObjectHideFlags: 0
