@@ -23,6 +23,8 @@ public class FollowPointsAndMove : MonoBehaviour
         //Initialize variables
         deffaultMovementSpeed = currentMovementSpeed;
         deffaultRotateSpeed = currentRotateSpeed;
+
+        pointsArray = SplineManagerSingleton.Instance.pointsArray;
     }
 
     void Update()
