@@ -9,13 +9,12 @@ public class ObjectPlacerSingleton : MonoBehaviour
     [SerializeField] private Color invalidColor;
     
     public Material ObjectOverviewMaterial;
-    public LayerMask InvalidLayers;
     
     private bool inPlacementMode;
     private bool validPlacement;
     
     private GameObject previewedObject;
-    private MeshRenderer previewObjMeshRenderer;
+    private MeshRenderer previewObjMeshRenderer; // no lo puede encontrar
     
     private const float PREVIEW_ROTATION_SPEED = 10f;
 

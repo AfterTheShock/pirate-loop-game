@@ -8,32 +8,36 @@ public class FollowPointsAndMove : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField] float currentMovementSpeed = 5f;
-    float deffaultMovementSpeed = 1f;
+    float defaultMovementSpeed = 1f;
 
     [SerializeField] float currentRotateSpeed = 15f;
-    float deffaultRotateSpeed = 1f;
+    float defaultRotateSpeed = 1f;
 
     [Header("Data")]
     private int currentIndex = 0;
     public int ammountOfLapsFinished = 0;
 
     [Header("Stuns")]
-    public float stunnedForXSeconds = 0;
+    [SerializeField] private float stunnedForXSeconds = 0;
     private bool isStunned = false;
 
     [Header("Slows")]
-    public float slowedForXSeconds = 0;
+    [SerializeField] private float slowedForXSeconds = 0;
     private bool isSlowed = false;
     [SerializeField] float percentageOfSlowSpeedReduction = 0.25f;
 
+    private Rigidbody rigidBody;
+    
 
     void Start()
     {
         //Initialize variables
-        deffaultMovementSpeed = currentMovementSpeed;
-        deffaultRotateSpeed = currentRotateSpeed;
+        defaultMovementSpeed = currentMovementSpeed;
+        defaultRotateSpeed = currentRotateSpeed;
 
         pointsArray = SplineManagerSingleton.Instance.pointsArray;
+        
+        rigidBody =  GetComponent<Rigidbody>();
     }
 
     void Update()
@@ -49,7 +53,7 @@ public class FollowPointsAndMove : MonoBehaviour
         if (slowedForXSeconds > 0 && !isStunned && !isSlowed)
         {
             isSlowed = true;
-            currentMovementSpeed = deffaultMovementSpeed * percentageOfSlowSpeedReduction;
+            currentMovementSpeed = defaultMovementSpeed * percentageOfSlowSpeedReduction;
         }
         else if (slowedForXSeconds > 0)
         {
@@ -60,7 +64,7 @@ public class FollowPointsAndMove : MonoBehaviour
             isSlowed = false;
             slowedForXSeconds = 0;
 
-            currentMovementSpeed = deffaultMovementSpeed;
+            currentMovementSpeed = defaultMovementSpeed;
         }
     }
 
@@ -80,7 +84,7 @@ public class FollowPointsAndMove : MonoBehaviour
             isStunned = false;
             stunnedForXSeconds = 0;
 
-            currentMovementSpeed = deffaultMovementSpeed;
+            currentMovementSpeed = defaultMovementSpeed;
         }
     }
 
@@ -116,9 +120,25 @@ public class FollowPointsAndMove : MonoBehaviour
         }
     }
 
+    public void KnockbackWalker(float secondsStunned, float forcePower)
+    {
+        StunWalker(secondsStunned);
+        rigidBody.AddForce(-transform.forward * forcePower, ForceMode.Impulse);
+    }
+    
+    public void StunWalker(float secondsStunned)
+    {
+        stunnedForXSeconds = secondsStunned;
+    }
+    
+    public void SlowWalker(float secondsSlowed)
+    {
+        stunnedForXSeconds = secondsSlowed;
+    }
+
     private void FinishedCurrentLap()
     {
         ammountOfLapsFinished++;
-
+        // Pasar a la tienda
     }
 }
