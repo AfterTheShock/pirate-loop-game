@@ -1,18 +1,36 @@
+using System;
 using UnityEngine;
 
-public class ObjectPlacer : MonoBehaviour
+public class ObjectPlacerSingleton : MonoBehaviour
 {
-    [SerializeField] private GameObject objectToPlace;
-    [SerializeField] private GameObject objectPreview;
+    [SerializeField] private PlacementObject objectToPlace;
     [SerializeField] private LayerMask groundLayer;
     [SerializeField] private Color validColor;
     [SerializeField] private Color invalidColor;
     
+    public LayerMask InvalidLayers;
+    
     private bool inPlacementMode;
     private bool validPlacement;
-    private GameObject previewObject;
-    private MeshRenderer previewObjMeshRenderer;
     
+    private GameObject previewedObject;
+    private MeshRenderer previewObjMeshRenderer;
+
+    private static ObjectPlacerSingleton _instance;
+
+    public static ObjectPlacerSingleton Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = GameObject.FindFirstObjectByType<ObjectPlacerSingleton>();
+            }
+
+            return _instance;
+        }
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -38,16 +56,21 @@ public class ObjectPlacer : MonoBehaviour
         }
     }
 
+    public void SetObjectToPlace(PlacementObject objectToPlace)
+    {
+        this.objectToPlace = objectToPlace;
+    }
+    
     private void EnterPlacementMode()
     {
         inPlacementMode = true;
-        previewObject = Instantiate(objectPreview, MouseWorldPosition(), Quaternion.identity);
-        previewObjMeshRenderer = previewObject.GetComponentInChildren<MeshRenderer>();
+        previewedObject = Instantiate(objectToPlace.objectPrefabPreview, MouseWorldPosition(), Quaternion.identity);
+        previewObjMeshRenderer = previewedObject.GetComponentInChildren<MeshRenderer>();
     }
 
     private void UpdateCurrentPlacementPosition()
     {
-        previewObject.transform.position = MouseWorldPosition();
+        previewedObject.transform.position = MouseWorldPosition();
 
         if (Input.GetMouseButtonDown(0)) PlaceObject();
     }
@@ -56,7 +79,7 @@ public class ObjectPlacer : MonoBehaviour
     {
         if (!validPlacement) return;
         
-        Instantiate(objectToPlace, MouseWorldPosition(), Quaternion.identity);
+        Instantiate(objectToPlace.objectPrefab, MouseWorldPosition(), Quaternion.identity);
             
         ExitPlacementMode();
     }
@@ -64,7 +87,8 @@ public class ObjectPlacer : MonoBehaviour
     private void ExitPlacementMode()
     {
         inPlacementMode = false;
-        Destroy(previewObject);
+        objectToPlace = null;
+        Destroy(previewedObject);
     }
 
     private void SetValidPreviewState()
@@ -81,9 +105,9 @@ public class ObjectPlacer : MonoBehaviour
     
     private bool CanPlaceObject()
     {
-        if (previewObject == null) return false;
+        if (previewedObject == null) return false;
 
-        return previewObject.GetComponentInChildren<PreviewObjectCheck>().IsValid;
+        return previewedObject.GetComponentInChildren<PreviewObjectCheck>().IsValid;
     }
     
     private Vector3 MouseWorldPosition()

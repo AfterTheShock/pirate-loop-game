@@ -377,6 +377,55 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &647020715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 647020717}
+  - component: {fileID: 647020716}
+  m_Layer: 0
+  m_Name: ObjectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &647020716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647020715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69062d5cb0d417e47b2bc8bdd8e2b5b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placementObjects:
+  - objectPrefab: {fileID: 5687932209457044082, guid: 3f2faef1a35e6ef4e8e7cd236a9db249, type: 3}
+    objectPrefabPreview: {fileID: 7355494658459764421, guid: 12a2e7dd90afc2043a2d7c755bbe7f69, type: 3}
+  - objectPrefab: {fileID: 3442526189640254414, guid: f6fddb4679411274b8fdf0805e281b07, type: 3}
+    objectPrefabPreview: {fileID: 4967847119624762353, guid: c4ce807cfc9828249adfd24da7f48be9, type: 3}
+--- !u!4 &647020717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 647020715}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,7 +702,7 @@ GameObject:
   - component: {fileID: 1702620390}
   - component: {fileID: 1702620389}
   m_Layer: 0
-  m_Name: ObjectSpawner
+  m_Name: ObjectPlacer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -671,8 +720,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b31cf69f811fca543b62be1b4d4f71c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectToPlace: {fileID: 5687932209457044082, guid: 3f2faef1a35e6ef4e8e7cd236a9db249, type: 3}
-  objectPreview: {fileID: 7355494658459764421, guid: 12a2e7dd90afc2043a2d7c755bbe7f69, type: 3}
+  objectToPlace:
+    objectPrefab: {fileID: 0}
+    objectPrefabPreview: {fileID: 0}
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -922,3 +972,4 @@ SceneRoots:
   - {fileID: 1702620390}
   - {fileID: 1182074453}
   - {fileID: 1307262276}
+  - {fileID: 647020717}
