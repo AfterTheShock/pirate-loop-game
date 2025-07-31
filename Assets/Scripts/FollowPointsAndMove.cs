@@ -2,21 +2,30 @@ using UnityEngine;
 
 public class FollowPointsAndMove : MonoBehaviour
 {
-    [SerializeField] Transform[] pointsArray = new Transform[0];
-
+    [Header("General control")]
+    private Transform[] pointsArray = new Transform[0];
     [SerializeField] float distanceToChangePoint = 0.005f;
 
+    [Header("Movement")]
     [SerializeField] float currentMovementSpeed = 5f;
-
     float deffaultMovementSpeed = 1f;
 
     [SerializeField] float currentRotateSpeed = 15f;
-
     float deffaultRotateSpeed = 1f;
 
+    [Header("Data")]
     private int currentIndex = 0;
-
     public int ammountOfLapsFinished = 0;
+
+    [Header("Stuns")]
+    public float stunnedForXSeconds = 0;
+    private bool isStunned = false;
+
+    [Header("Slows")]
+    public float slowedForXSeconds = 0;
+    private bool isSlowed = false;
+    [SerializeField] float percentageOfSlowSpeedReduction = 0.25f;
+
 
     void Start()
     {
@@ -31,6 +40,48 @@ public class FollowPointsAndMove : MonoBehaviour
     {
         ManageOrderOfPoints();
         MoveAndRotateTowardsCurrentPoint();
+        ManageStuns();
+        ManageSlows();
+    }
+
+    private void ManageSlows()
+    {
+        if (slowedForXSeconds > 0 && !isStunned && !isSlowed)
+        {
+            isSlowed = true;
+            currentMovementSpeed = deffaultMovementSpeed * percentageOfSlowSpeedReduction;
+        }
+        else if (slowedForXSeconds > 0)
+        {
+            slowedForXSeconds -= Time.deltaTime;
+        }
+        else if (isSlowed && slowedForXSeconds <= 0 && !isStunned)
+        {
+            isSlowed = false;
+            slowedForXSeconds = 0;
+
+            currentMovementSpeed = deffaultMovementSpeed;
+        }
+    }
+
+    private void ManageStuns()
+    {
+        if(stunnedForXSeconds > 0 && !isStunned)
+        {
+            isStunned = true;
+            currentMovementSpeed = 0;
+        }
+        else if (isStunned && stunnedForXSeconds > 0)
+        {
+            stunnedForXSeconds -= Time.deltaTime;
+        }
+        else if(isStunned && stunnedForXSeconds <= 0)
+        {
+            isStunned = false;
+            stunnedForXSeconds = 0;
+
+            currentMovementSpeed = deffaultMovementSpeed;
+        }
     }
 
     private void MoveAndRotateTowardsCurrentPoint()
