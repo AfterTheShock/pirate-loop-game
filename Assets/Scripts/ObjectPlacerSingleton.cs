@@ -16,6 +16,8 @@ public class ObjectPlacerSingleton : MonoBehaviour
     
     private GameObject previewedObject;
     private MeshRenderer previewObjMeshRenderer;
+    
+    private const float PREVIEW_ROTATION_SPEED = 10f;
 
     private static ObjectPlacerSingleton _instance;
 
@@ -71,7 +73,13 @@ public class ObjectPlacerSingleton : MonoBehaviour
 
     private void UpdateCurrentPlacementPosition()
     {
+        float mouseScroll = Input.mouseScrollDelta.y;
+        
+        if (mouseScroll != 0)
+            previewedObject.transform.Rotate(new Vector3(0f, mouseScroll * PREVIEW_ROTATION_SPEED, 0f));
+        
         previewedObject.transform.position = MouseWorldPosition();
+        
 
         if (Input.GetMouseButtonDown(0)) PlaceObject();
     }
@@ -80,7 +88,7 @@ public class ObjectPlacerSingleton : MonoBehaviour
     {
         if (!validPlacement) return;
         
-        Instantiate(objectToPlace.objectPrefab, MouseWorldPosition(), Quaternion.identity);
+        Instantiate(objectToPlace.objectPrefab, previewedObject.transform.position, previewedObject.transform.rotation);
             
         ExitPlacementMode();
     }
