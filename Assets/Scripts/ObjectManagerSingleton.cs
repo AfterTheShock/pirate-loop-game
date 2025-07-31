@@ -2,11 +2,26 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectManager : MonoBehaviour
+public class ObjectManagerSingleton : MonoBehaviour
 {
-    [SerializeField] List<PlacementObject> placementObjects = new List<PlacementObject>();
+    [SerializeField] private List<PlacementObject> placementObjects = new List<PlacementObject>();
     private PlacementObject selectedObject;
 
+    private static ObjectManagerSingleton _instance;
+
+    public static ObjectManagerSingleton Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = GameObject.FindFirstObjectByType<ObjectManagerSingleton>();
+            }
+
+            return _instance;
+        }
+    }
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))

@@ -8,6 +8,7 @@ public class ObjectPlacerSingleton : MonoBehaviour
     [SerializeField] private Color validColor;
     [SerializeField] private Color invalidColor;
     
+    public Material ObjectOverviewMaterial;
     public LayerMask InvalidLayers;
     
     private bool inPlacementMode;

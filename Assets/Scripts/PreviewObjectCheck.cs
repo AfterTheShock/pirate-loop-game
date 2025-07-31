@@ -1,17 +1,22 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class PreviewObjectCheck : MonoBehaviour
 {
-    [SerializeField] List<Collider> collidingObjects = new List<Collider>();
+    private List<Collider> collidingObjects = new List<Collider>();
     private LayerMask invalidLayers;
+    
+    private MeshRenderer meshRenderer;
+    private Rigidbody rigidBody;
+    private Collider collider;
     
     public bool IsValid { get; private set; } = true;
 
     private void Awake()
     {
-        invalidLayers = ObjectPlacerSingleton.Instance.InvalidLayers;
+        PreviewObjectSetup();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,5 +35,21 @@ public class PreviewObjectCheck : MonoBehaviour
             collidingObjects.Remove(other);
             IsValid = collidingObjects.Count <= 0;
         }
+    }
+
+    //Lo único que se necesita para que funcione es el script
+    private void PreviewObjectSetup()
+    {
+        invalidLayers = ObjectPlacerSingleton.Instance.InvalidLayers;
+
+        meshRenderer = GetComponent<MeshRenderer>();
+        meshRenderer.material = ObjectPlacerSingleton.Instance.ObjectOverviewMaterial;
+        meshRenderer.shadowCastingMode = ShadowCastingMode.Off;
+        
+        rigidBody = gameObject.AddComponent<Rigidbody>();
+        rigidBody.isKinematic = true;
+        
+        collider = GetComponent<Collider>();
+        collider.isTrigger = true;
     }
 }

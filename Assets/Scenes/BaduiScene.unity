@@ -408,9 +408,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placementObjects:
   - objectPrefab: {fileID: 5687932209457044082, guid: 3f2faef1a35e6ef4e8e7cd236a9db249, type: 3}
-    objectPrefabPreview: {fileID: 7355494658459764421, guid: 12a2e7dd90afc2043a2d7c755bbe7f69, type: 3}
+    objectPrefabPreview: {fileID: 4927107224606610467, guid: 12a2e7dd90afc2043a2d7c755bbe7f69, type: 3}
   - objectPrefab: {fileID: 3442526189640254414, guid: f6fddb4679411274b8fdf0805e281b07, type: 3}
-    objectPrefabPreview: {fileID: 4967847119624762353, guid: c4ce807cfc9828249adfd24da7f48be9, type: 3}
+    objectPrefabPreview: {fileID: 3247310633716928691, guid: c4ce807cfc9828249adfd24da7f48be9, type: 3}
 --- !u!4 &647020717
 Transform:
   m_ObjectHideFlags: 0
@@ -728,6 +728,10 @@ MonoBehaviour:
     m_Bits: 64
   validColor: {r: 0, g: 0.65682125, b: 1, a: 0.5568628}
   invalidColor: {r: 1, g: 0, b: 0, a: 0.5529412}
+  ObjectOverviewMaterial: {fileID: 2100000, guid: b84e04ac8e38abf47beebe3610749561, type: 2}
+  InvalidLayers:
+    serializedVersion: 2
+    m_Bits: 129
 --- !u!4 &1702620390
 Transform:
   m_ObjectHideFlags: 0
@@ -735,6 +739,37 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702620388}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1703724514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1703724515}
+  m_Layer: 0
+  m_Name: ======================
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1703724515
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703724514}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -865,7 +900,7 @@ GameObject:
   - component: {fileID: 2099842464}
   - component: {fileID: 2099842463}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Baba
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -969,7 +1004,8 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 2016557631}
   - {fileID: 2099842466}
-  - {fileID: 1702620390}
   - {fileID: 1182074453}
   - {fileID: 1307262276}
+  - {fileID: 1703724515}
+  - {fileID: 1702620390}
   - {fileID: 647020717}
