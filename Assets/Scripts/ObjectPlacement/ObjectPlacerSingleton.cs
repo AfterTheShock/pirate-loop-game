@@ -21,6 +21,9 @@ public class ObjectPlacerSingleton : MonoBehaviour
 
     private CardScriptableObject cardBeingPlacedScriptableObject;
 
+    [SerializeField] CanvasGroup candsInHandCanvasGroup;
+    [SerializeField] float cardsAlphaWhenPlacing = 0.35f;
+
     public static ObjectPlacerSingleton Instance
     {
         get
@@ -62,6 +65,10 @@ public class ObjectPlacerSingleton : MonoBehaviour
         inPlacementMode = true;
         previewedObject = Instantiate(objectToPlace.objectPrefabPreview, MouseWorldPosition(), Quaternion.identity);
         previewObjMeshRenderer = previewedObject.GetComponentInChildren<MeshRenderer>();
+
+        candsInHandCanvasGroup.alpha = cardsAlphaWhenPlacing;
+        candsInHandCanvasGroup.interactable = false;
+        candsInHandCanvasGroup.blocksRaycasts = false;
     }
 
     private void UpdateCurrentPlacementPosition()
@@ -101,6 +108,10 @@ public class ObjectPlacerSingleton : MonoBehaviour
         objectToPlace = null;
         cardBeingPlacedScriptableObject = null;
         Destroy(previewedObject);
+
+        candsInHandCanvasGroup.alpha = 1;
+        candsInHandCanvasGroup.interactable = true;
+        candsInHandCanvasGroup.blocksRaycasts = true;
     }
 
     private void SetValidPreviewState()

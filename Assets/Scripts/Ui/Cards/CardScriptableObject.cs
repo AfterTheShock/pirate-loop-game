@@ -5,6 +5,8 @@ public class CardScriptableObject : ScriptableObject
 {
     public string cardName;
 
+    public string cardDescription;
+
     public int cardPrice = 1;
 
     public int stock = 1;

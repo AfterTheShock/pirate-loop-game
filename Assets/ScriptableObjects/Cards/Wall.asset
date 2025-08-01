@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Wall
   m_EditorClassIdentifier: 
   cardName: Wall
+  cardDescription: A wall that \n stuns the walker
   cardPrice: 5
   stock: 1
   cardImage: {fileID: 0}

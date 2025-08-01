@@ -13,7 +13,11 @@ MonoBehaviour:
   m_Name: Slower
   m_EditorClassIdentifier: 
   cardName: Slower
+  cardDescription: Slows the walker
   cardPrice: 6
   stock: 1
   cardImage: {fileID: 0}
   cardType: 1
+  placementObject:
+    objectPrefab: {fileID: 0}
+    objectPrefabPreview: {fileID: 0}

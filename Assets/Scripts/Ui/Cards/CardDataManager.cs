@@ -81,4 +81,16 @@ public class CardDataManager : MonoBehaviour
         ObjectPlacerSingleton.Instance.CardToPlace(cardScriptableObject);
         Destroy(this.gameObject);
     } 
+
+    public void OnHoverOverCard()
+    {
+        CardFlotatingDescriptionManager.Instance.descriptionText.text = cardScriptableObject.cardDescription;
+        CardFlotatingDescriptionManager.Instance.thisChild.gameObject.SetActive(true);
+        CardFlotatingDescriptionManager.Instance.thisCanvasGroup.alpha = 0;
+    }
+
+    public void OnHoverOutsideCard()
+    {
+        CardFlotatingDescriptionManager.Instance.thisChild.gameObject.SetActive(false);
+    }
 }

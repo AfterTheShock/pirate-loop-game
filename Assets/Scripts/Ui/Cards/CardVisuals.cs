@@ -21,6 +21,12 @@ public class CardVisuals : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private Transform childZero;
 
+    CardDataManager cardDataManager;
+
+    private float defaultTimeToShowDescription = 0.3f;
+    private float timeLeftToShowDescription = 0.5f;
+    private bool isDescriptionShown;
+
     private void Awake()
     {
         RectTransform initialPos = ShopManager.Instance.cardInitialPos;
@@ -29,6 +35,8 @@ public class CardVisuals : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         childZero.GetComponent<RectTransform>().position = initialPos.position;
         childZero.GetComponent<RectTransform>().eulerAngles = initialPos.eulerAngles + new Vector3(0, 15, 0);
+
+        cardDataManager = this.transform.parent.GetComponent<CardDataManager>();
     }
 
     private void OnDestroy()
@@ -55,6 +63,14 @@ public class CardVisuals : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         HoverSizeController();
 
         ControlCardvisualsPosition();
+
+        if (isHovering && timeLeftToShowDescription > 0) timeLeftToShowDescription -= Time.unscaledDeltaTime;
+
+        if(isHovering && timeLeftToShowDescription <= 0 && !isDescriptionShown)
+        {
+            isDescriptionShown = true;
+            cardDataManager.OnHoverOverCard();
+        }
     }
 
     private void ControlCardvisualsPosition()
@@ -117,11 +133,17 @@ public class CardVisuals : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerEnter(PointerEventData eventData)
     {
         isHovering = true;
+        timeLeftToShowDescription = defaultTimeToShowDescription;
+        //cardDataManager.OnHoverOverCard();
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         isHovering = false;
+
+        if (isDescriptionShown) cardDataManager.OnHoverOutsideCard();
+
+        isDescriptionShown = false;
     }
 
 }

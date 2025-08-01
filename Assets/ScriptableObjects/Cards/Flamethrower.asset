@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
   cardName: Flamethrower
+  cardDescription: A lethal cone \n of fire
   cardPrice: 2
   stock: 2
   cardImage: {fileID: 0}
