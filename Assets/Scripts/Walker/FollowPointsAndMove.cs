@@ -133,7 +133,7 @@ public class FollowPointsAndMove : MonoBehaviour
     
     public void SlowWalker(float secondsSlowed)
     {
-        stunnedForXSeconds = secondsSlowed;
+        slowedForXSeconds = secondsSlowed;
     }
 
     private void FinishedCurrentLap()

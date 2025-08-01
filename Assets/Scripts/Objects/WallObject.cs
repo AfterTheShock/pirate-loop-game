@@ -1,21 +1,27 @@
 using System;
 using UnityEngine;
 
-public class WallScript : MonoBehaviour
+public class WallObject : MonoBehaviour
 {
+    [Header("Collision")]
     [SerializeField] private Transform boxSpawnPoint;
     [SerializeField] private Vector3 boxSize;
-    [SerializeField] private LayerMask walkerMask;
+    
+    [Header("Effects")]
     [SerializeField] private float stunSeconds;
     [SerializeField] private float knockbackPower;
- 
-    private PreviewObjectCheck previewObjectCheck;
 
-    private bool alreadyStunned = false;
+    private LayerMask walkerLayerMask;
+    private bool alreadyStunned;
+
+    private void Awake()
+    {
+        walkerLayerMask = LayerMask.GetMask("Walker");
+    }
 
     private void Update()
     {
-        Collider[] hits = Physics.OverlapBox(boxSpawnPoint.position, boxSize,  transform.rotation, walkerMask);
+        Collider[] hits = Physics.OverlapBox(boxSpawnPoint.position, boxSize,  transform.rotation, walkerLayerMask);
         if (hits.Length > 0)
         {
             if (!alreadyStunned)
@@ -29,7 +35,6 @@ public class WallScript : MonoBehaviour
 
     private void DestroyObject()
     {
-        // Aca pueden ir animaciones y efectos de sonido previos a destruir el objeto
         Destroy(gameObject);
     }
     
