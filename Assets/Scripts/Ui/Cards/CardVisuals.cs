@@ -53,7 +53,7 @@ public class CardVisuals : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
             initializedCardStartPosition = true;
         }
         else
-        this.transform.GetChild(0).localPosition = Vector3.Lerp(this.transform.GetChild(0).localPosition, Vector3.zero, movementLerpSpeed * Time.unscaledDeltaTime);
+        this.transform.GetChild(0).position = Vector3.Lerp(this.transform.GetChild(0).position, this.transform.position, movementLerpSpeed * Time.unscaledDeltaTime);
     }
 
     private void HoverSizeController()

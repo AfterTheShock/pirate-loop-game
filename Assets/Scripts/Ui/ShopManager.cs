@@ -49,7 +49,7 @@ public class ShopManager : MonoBehaviour
     {
         if (visualsShopHolder.activeInHierarchy)
         {
-            visualsShopCanvasGroup.alpha += Time.deltaTime * 6;
+            visualsShopCanvasGroup.alpha += Time.unscaledDeltaTime * 6;
         }
 
         //SACAR ESTO ANDES DE BUILDEAR ES PARA TESTEAR
@@ -100,12 +100,17 @@ public class ShopManager : MonoBehaviour
         }
 
         visualsShopHolder.SetActive(true);
+        cardsInCandHolder.gameObject.SetActive(false);
+        Time.timeScale = 0;
     }
 
     public void ExitShopButton()
     {
+        Time.timeScale = 1;
+
         visualsShopCanvasGroup.alpha = 0;
         visualsShopHolder.SetActive(false);
+        cardsInCandHolder.gameObject.SetActive(true);
 
         foreach (Transform child in cardsHolder.transform)
         {
