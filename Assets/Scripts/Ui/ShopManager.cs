@@ -34,6 +34,11 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField] GameObject cardPrefab;
 
+    [Header("Cards in hand")]
+    [SerializeField] Transform cardsInCandHolder;
+    [SerializeField] GameObject handCardPrefab;
+    [SerializeField] GameObject handCardStartPosition;
+
     private void Start()
     {
         HudManager.Instance.SetMoneyText(currentAmmountOfMoney);
@@ -63,6 +68,19 @@ public class ShopManager : MonoBehaviour
         currentAmmountOfMoney += ammountToGive;
 
         HudManager.Instance.SetMoneyText(currentAmmountOfMoney);
+    }
+
+    public void CardBought(CardScriptableObject cardScriptableObject)
+    {
+        GameObject card = Instantiate(handCardPrefab);
+
+        card.transform.SetParent(cardsInCandHolder);
+        card.transform.localScale = Vector3.one;
+        card.transform.localPosition = handCardStartPosition.transform.position;
+        card.transform.GetChild(0).GetChild(0).localPosition = Vector3.zero;
+        card.transform.rotation = handCardStartPosition.transform.rotation;
+
+        card.GetComponent<CardDataManager>().cardScriptableObject = cardScriptableObject;
     }
 
     public void EnterShop()

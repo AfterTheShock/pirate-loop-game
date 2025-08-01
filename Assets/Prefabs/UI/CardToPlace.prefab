@@ -151,7 +151,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 13.02}
+  m_AnchoredPosition: {x: 0, y: 28.71}
   m_SizeDelta: {x: 75, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5414184749392742254
@@ -365,7 +365,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 145.86, y: 219.4}
+  m_SizeDelta: {x: 145.85999, y: 219.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &783719975312594800
 MonoBehaviour:
@@ -470,6 +470,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2512365330489928904}
   - component: {fileID: 6071686228299686747}
+  - component: {fileID: 8764198503309852335}
   - component: {fileID: 6217866438184879929}
   - component: {fileID: 3992439426166974157}
   - component: {fileID: 6005741742625314710}
@@ -508,6 +509,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7212977913084051352}
   m_CullTransparentMesh: 1
+--- !u!114 &8764198503309852335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7212977913084051352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa001ee5b47af8a4e80b459cab5de86d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hoveredTargetPosition: {x: 0, y: 35, z: 0}
+  uppingSpeed: 10
+  rotationMultiplierOnHover: 15
+  tiltSpeed: 4
+  idleTiltSpeed: 0.5
+  targetSizeOnHover: 1.05
+  targetSizeSpeed: 10
+  idleMovementMultiplier: 3
 --- !u!114 &6217866438184879929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,7 +602,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6217866438184879929}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5517930005692391446}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &6005741742625314710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -689,7 +722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7146688890672585366
 RectTransform:
   m_ObjectHideFlags: 0
@@ -827,7 +860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8602661000595946541
 RectTransform:
   m_ObjectHideFlags: 0

@@ -44,9 +44,11 @@ public class CardDataManager : MonoBehaviour
             return;
         } 
 
+        //Substract the money from the player's money
         ShopManager.Instance.SubstractMoney(cardScriptableObject.cardPrice);
 
-        //dar la carta al maso
+        //Give the card to the players hand
+        ShopManager.Instance.CardBought(cardScriptableObject);
 
         stock--;
         SetCardVisuals();

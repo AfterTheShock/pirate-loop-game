@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8441d44390963ba4bbad3982bacd1087, type: 3}
   m_Name: Flamethrower
   m_EditorClassIdentifier: 
-  cardName: Wall
+  cardName: Flamethrower
   cardPrice: 2
   stock: 2
   cardImage: {fileID: 0}
