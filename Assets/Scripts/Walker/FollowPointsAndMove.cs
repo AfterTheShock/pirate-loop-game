@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FollowPointsAndMove : MonoBehaviour
@@ -24,8 +25,8 @@ public class FollowPointsAndMove : MonoBehaviour
     [Header("Slows")]
     [SerializeField] private float slowedForXSeconds = 0;
     private bool isSlowed = false;
-    [SerializeField] float percentageOfSlowSpeedReduction = 0.25f;
-
+    private float percentageOfSlowSpeedReduction;
+    
     private Rigidbody rigidBody;
     
 
@@ -50,16 +51,19 @@ public class FollowPointsAndMove : MonoBehaviour
 
     private void ManageSlows()
     {
-        if (slowedForXSeconds > 0 && !isStunned && !isSlowed)
+        // Cambio estado isSlowed
+        if (slowedForXSeconds > 0 && !isSlowed)
         {
             isSlowed = true;
-            currentMovementSpeed = defaultMovementSpeed * percentageOfSlowSpeedReduction;
+            currentMovementSpeed = defaultMovementSpeed - (defaultMovementSpeed * percentageOfSlowSpeedReduction);
         }
+        // Cuenta regresiva de slow
         else if (slowedForXSeconds > 0)
         {
             slowedForXSeconds -= Time.deltaTime;
         }
-        else if (isSlowed && slowedForXSeconds <= 0 && !isStunned)
+        // El walker no está sloweado
+        else if (isSlowed && slowedForXSeconds <= 0)
         {
             isSlowed = false;
             slowedForXSeconds = 0;
@@ -73,7 +77,6 @@ public class FollowPointsAndMove : MonoBehaviour
         if(stunnedForXSeconds > 0 && !isStunned)
         {
             isStunned = true;
-            currentMovementSpeed = 0;
         }
         else if (isStunned && stunnedForXSeconds > 0)
         {
@@ -83,13 +86,13 @@ public class FollowPointsAndMove : MonoBehaviour
         {
             isStunned = false;
             stunnedForXSeconds = 0;
-
-            currentMovementSpeed = defaultMovementSpeed;
         }
     }
 
     private void MoveAndRotateTowardsCurrentPoint()
     {
+        if(isStunned) return;
+        
         //Move 
         Vector3 movementDirection = Vector3.Normalize(pointsArray[currentIndex].position - this.transform.position);
         this.transform.position += movementDirection * currentMovementSpeed * Time.deltaTime;
@@ -128,11 +131,13 @@ public class FollowPointsAndMove : MonoBehaviour
     
     public void StunWalker(float secondsStunned)
     {
+        isSlowed = false;
         stunnedForXSeconds = secondsStunned;
     }
     
-    public void SlowWalker(float secondsSlowed)
+    public void SlowWalker(float secondsSlowed, float slowPercent)
     {
+        percentageOfSlowSpeedReduction = slowPercent;
         slowedForXSeconds = secondsSlowed;
     }
 

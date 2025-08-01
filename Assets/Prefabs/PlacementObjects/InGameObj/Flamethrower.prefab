@@ -49,8 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coneAngle: 45
   coneRange: 1.78
-  slowSeconds: 1
-  damageCooldown: 0.5
+  slowSeconds: 0.2
+  slowPercent: 0.25
+  damageCooldown: 0.1
 --- !u!65 &4068212075244628665
 BoxCollider:
   m_ObjectHideFlags: 0
