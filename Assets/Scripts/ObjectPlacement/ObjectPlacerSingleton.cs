@@ -19,6 +19,8 @@ public class ObjectPlacerSingleton : MonoBehaviour
 
     private static ObjectPlacerSingleton _instance;
 
+    private CardScriptableObject cardBeingPlacedScriptableObject;
+
     public static ObjectPlacerSingleton Instance
     {
         get
@@ -42,11 +44,15 @@ public class ObjectPlacerSingleton : MonoBehaviour
                 SetValidPreviewState();
             else
                 SetInvalidPreviewState();
+
+            if (Input.GetKeyDown(KeyCode.Escape) || Input.GetMouseButtonDown(1)) CancelPlacementOfObject();
         }
     }
 
     public void CardToPlace(CardScriptableObject cardScriptableObject)
     {
+        cardBeingPlacedScriptableObject = cardScriptableObject;
+
         objectToPlace = cardScriptableObject.placementObject;
         EnterPlacementMode();
     }
@@ -80,10 +86,20 @@ public class ObjectPlacerSingleton : MonoBehaviour
         ExitPlacementMode();
     }
     
+    public void CancelPlacementOfObject()
+    {
+        if (!inPlacementMode) return;
+
+        ShopManager.Instance.CardBought(cardBeingPlacedScriptableObject);
+
+        ExitPlacementMode();
+    }
+
     private void ExitPlacementMode()
     {
         inPlacementMode = false;
         objectToPlace = null;
+        cardBeingPlacedScriptableObject = null;
         Destroy(previewedObject);
     }
 

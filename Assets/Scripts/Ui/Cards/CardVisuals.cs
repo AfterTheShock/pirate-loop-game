@@ -19,11 +19,26 @@ public class CardVisuals : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private bool initializedCardStartPosition = false;
 
+    private Transform childZero;
+
     private void Awake()
     {
         RectTransform initialPos = ShopManager.Instance.cardInitialPos;
-        this.transform.GetChild(0).GetComponent<RectTransform>().position = initialPos.position;
-        this.transform.GetChild(0).GetComponent<RectTransform>().eulerAngles = initialPos.eulerAngles + new Vector3(0, 15, 0);
+
+        childZero = this.transform.GetChild(0);
+
+        childZero.GetComponent<RectTransform>().position = initialPos.position;
+        childZero.GetComponent<RectTransform>().eulerAngles = initialPos.eulerAngles + new Vector3(0, 15, 0);
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(childZero.gameObject);
+    }
+
+    private void Start()
+    {
+        this.transform.GetChild(0).SetParent(ShopManager.Instance.cardVisualsParent);
     }
 
     void Update()
@@ -47,13 +62,13 @@ public class CardVisuals : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         if (!initializedCardStartPosition)
         {
             RectTransform initialPos = ShopManager.Instance.cardInitialPos;
-            this.transform.GetChild(0).GetComponent<RectTransform>().position = initialPos.position;
-            this.transform.GetChild(0).GetComponent<RectTransform>().eulerAngles = initialPos.eulerAngles + new Vector3(0, 15, 0);
+            childZero.GetComponent<RectTransform>().position = initialPos.position;
+            childZero.GetComponent<RectTransform>().eulerAngles = initialPos.eulerAngles + new Vector3(0, 15, 0);
 
             initializedCardStartPosition = true;
         }
         else
-        this.transform.GetChild(0).position = Vector3.Lerp(this.transform.GetChild(0).position, this.transform.position, movementLerpSpeed * Time.unscaledDeltaTime);
+            childZero.position = Vector3.Lerp(childZero.position, this.transform.position, movementLerpSpeed * Time.unscaledDeltaTime);
     }
 
     private void HoverSizeController()
@@ -77,14 +92,14 @@ public class CardVisuals : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         mousePosition.z = 1;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        Vector3 offset = (transform.GetChild(0).position - mousePosition) * rotationMultiplierOnHover;
+        Vector3 offset = (childZero.position - mousePosition) * rotationMultiplierOnHover;
         float tiltX = (offset.y / 2) * -1;
         float tiltY = offset.x;
 
-        float lerpX = Mathf.LerpAngle(transform.GetChild(0).localEulerAngles.x, tiltX , tiltSpeed * Time.unscaledDeltaTime);
-        float lerpY = Mathf.LerpAngle(transform.GetChild(0).localEulerAngles.y, tiltY , tiltSpeed * Time.unscaledDeltaTime);
+        float lerpX = Mathf.LerpAngle(childZero.localEulerAngles.x, tiltX , tiltSpeed * Time.unscaledDeltaTime);
+        float lerpY = Mathf.LerpAngle(childZero.localEulerAngles.y, tiltY , tiltSpeed * Time.unscaledDeltaTime);
 
-        transform.GetChild(0).localEulerAngles = new Vector3(lerpX, lerpY, 0);
+        childZero.localEulerAngles = new Vector3(lerpX, lerpY, 0);
 
     }
 
@@ -93,10 +108,10 @@ public class CardVisuals : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         float sine = Mathf.Sin(Time.unscaledTime * idleTiltSpeed + transform.position.x * 100.3465f) * idleMovementMultiplier;
         float cosine = Mathf.Cos(Time.unscaledTime * idleTiltSpeed + transform.position.x * 102.5674f) * idleMovementMultiplier;
 
-        float lerpX = Mathf.LerpAngle(transform.GetChild(0).localEulerAngles.x, sine, tiltSpeed * Time.unscaledDeltaTime);
-        float lerpY = Mathf.LerpAngle(transform.GetChild(0).localEulerAngles.y, cosine, tiltSpeed * Time.unscaledDeltaTime);
+        float lerpX = Mathf.LerpAngle(childZero.localEulerAngles.x, sine, tiltSpeed * Time.unscaledDeltaTime);
+        float lerpY = Mathf.LerpAngle(childZero.localEulerAngles.y, cosine, tiltSpeed * Time.unscaledDeltaTime);
 
-        transform.GetChild(0).localEulerAngles = new Vector3(lerpX, lerpY, 0);
+        childZero.localEulerAngles = new Vector3(lerpX, lerpY, 0);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

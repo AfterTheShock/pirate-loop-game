@@ -34,10 +34,16 @@ public class ShopManager : MonoBehaviour
 
     [SerializeField] GameObject cardPrefab;
 
+    public Transform cardVisualsParent;
+
+    public Transform cardsInHandVisualsParent;
+
     [Header("Cards in hand")]
     [SerializeField] Transform cardsInCandHolder;
     [SerializeField] GameObject handCardPrefab;
     [SerializeField] GameObject handCardStartPosition;
+    [SerializeField] CanvasGroup handCardCanvasGroup;
+    public float handCardAlphaInShop = 0.25f;
 
     private void Start()
     {
@@ -100,7 +106,8 @@ public class ShopManager : MonoBehaviour
         }
 
         visualsShopHolder.SetActive(true);
-        cardsInCandHolder.gameObject.SetActive(false);
+        handCardCanvasGroup.interactable = false;
+        handCardCanvasGroup.alpha = handCardAlphaInShop;
         Time.timeScale = 0;
     }
 
@@ -110,7 +117,8 @@ public class ShopManager : MonoBehaviour
 
         visualsShopCanvasGroup.alpha = 0;
         visualsShopHolder.SetActive(false);
-        cardsInCandHolder.gameObject.SetActive(true);
+        handCardCanvasGroup.interactable = true;
+        handCardCanvasGroup.alpha = 1;
 
         foreach (Transform child in cardsHolder.transform)
         {

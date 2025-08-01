@@ -16,14 +16,22 @@ public class CardDataManager : MonoBehaviour
 
     [SerializeField] Image cardImage;
 
+    private Transform visualsChild;
 
     private void Awake()
     {
+        visualsChild = this.transform.GetChild(0).GetChild(0);
+
         if (cardScriptableObject == null) return;
 
         stock = cardScriptableObject.stock;
 
         SetCardVisuals();
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(visualsChild.gameObject);
     }
 
     private void Start()

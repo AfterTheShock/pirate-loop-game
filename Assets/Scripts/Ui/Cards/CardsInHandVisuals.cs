@@ -18,6 +18,18 @@ public class CardsInHandVisuals : MonoBehaviour, IPointerEnterHandler, IPointerE
     [SerializeField] float targetSizeSpeed = 10f;
     [SerializeField] float idleMovementMultiplier = 3;
 
+    private Transform childZero;
+
+    private void Awake()
+    {
+        childZero = this.transform.GetChild(0);
+    }
+
+    private void Start()
+    {
+        this.transform.GetChild(0).SetParent(ShopManager.Instance.cardsInHandVisualsParent);
+    }
+
     private void Update()
     {
         if (isHovering)
@@ -36,7 +48,7 @@ public class CardsInHandVisuals : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     private void ManageUpingOnHover()
     {
-        this.transform.GetChild(0).localPosition = Vector3.Lerp(this.transform.GetChild(0).localPosition, targetPosition, uppingSpeed * Time.unscaledDeltaTime);
+        childZero.position = Vector3.Lerp(childZero.position, this.transform.position + targetPosition, uppingSpeed * Time.unscaledDeltaTime);
     }
 
     private void HoverSizeController()
@@ -60,14 +72,14 @@ public class CardsInHandVisuals : MonoBehaviour, IPointerEnterHandler, IPointerE
         mousePosition.z = 1;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        Vector3 offset = (transform.GetChild(0).position - mousePosition) * rotationMultiplierOnHover;
+        Vector3 offset = (childZero.position - mousePosition) * rotationMultiplierOnHover;
         float tiltX = (offset.y / 2) * -1;
         float tiltY = offset.x;
 
-        float lerpX = Mathf.LerpAngle(transform.GetChild(0).localEulerAngles.x, tiltX, tiltSpeed * Time.unscaledDeltaTime);
-        float lerpY = Mathf.LerpAngle(transform.GetChild(0).localEulerAngles.y, tiltY, tiltSpeed * Time.unscaledDeltaTime);
+        float lerpX = Mathf.LerpAngle(childZero.localEulerAngles.x, tiltX, tiltSpeed * Time.unscaledDeltaTime);
+        float lerpY = Mathf.LerpAngle(childZero.localEulerAngles.y, tiltY, tiltSpeed * Time.unscaledDeltaTime);
 
-        transform.GetChild(0).localEulerAngles = new Vector3(lerpX, lerpY, 0);
+        childZero.localEulerAngles = new Vector3(lerpX, lerpY, 0);
 
     }
 
@@ -76,10 +88,10 @@ public class CardsInHandVisuals : MonoBehaviour, IPointerEnterHandler, IPointerE
         float sine = Mathf.Sin(Time.unscaledTime * idleTiltSpeed + transform.position.x * 100.3465f) * idleMovementMultiplier;
         float cosine = Mathf.Cos(Time.unscaledTime * idleTiltSpeed + transform.position.x * 102.5674f) * idleMovementMultiplier;
 
-        float lerpX = Mathf.LerpAngle(transform.GetChild(0).localEulerAngles.x, sine, tiltSpeed * Time.unscaledDeltaTime);
-        float lerpY = Mathf.LerpAngle(transform.GetChild(0).localEulerAngles.y, cosine, tiltSpeed * Time.unscaledDeltaTime);
+        float lerpX = Mathf.LerpAngle(childZero.localEulerAngles.x, sine, tiltSpeed * Time.unscaledDeltaTime);
+        float lerpY = Mathf.LerpAngle(childZero.localEulerAngles.y, cosine, tiltSpeed * Time.unscaledDeltaTime);
 
-        transform.GetChild(0).localEulerAngles = new Vector3(lerpX, lerpY, 0);
+        childZero.localEulerAngles = new Vector3(lerpX, lerpY, 0);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

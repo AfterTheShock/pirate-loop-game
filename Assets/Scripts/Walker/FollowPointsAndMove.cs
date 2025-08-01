@@ -140,5 +140,6 @@ public class FollowPointsAndMove : MonoBehaviour
     {
         ammountOfLapsFinished++;
         // Pasar a la tienda
+        FinishedLapResultsManager.Instance.OpenResultsScreen();
     }
 }
