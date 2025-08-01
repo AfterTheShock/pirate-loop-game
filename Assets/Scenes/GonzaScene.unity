@@ -673,6 +673,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e40eecfa6d5d504c9d9b85410f7015b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minimumPoints: 0
 --- !u!4 &121867826
 Transform:
   m_ObjectHideFlags: 0
@@ -3707,6 +3708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsEarnedThisRound: 0
+  maxPointsToWinRound: 10
   pointsPerSecond: 1
 --- !u!1001 &735436879
 PrefabInstance:
@@ -7476,7 +7478,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoneyText: {fileID: 114263950}
   PointsText: {fileID: 1021071779}
-  maxPointsToWinRound: 10
 --- !u!1001 &1434940866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9541,6 +9542,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handCardCanvasGroup: {fileID: 1949979322}
+  pointsText: {fileID: 761119102}
+  moneyText: {fileID: 1793776696}
 --- !u!1 &1949979320
 GameObject:
   m_ObjectHideFlags: 0

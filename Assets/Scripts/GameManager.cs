@@ -4,8 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public int pointsEarnedThisRound;
     public int maxPointsToWinRound = 10;
-
-
+    
     [SerializeField] int pointsPerSecond = 1;
 
     private float timeSinceLastSecond;
