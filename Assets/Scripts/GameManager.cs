@@ -3,10 +3,26 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int pointsEarnedThisRound;
+    public int maxPointsToWinRound = 10;
+
 
     [SerializeField] int pointsPerSecond = 1;
 
     private float timeSinceLastSecond;
+
+    private static GameManager _instance;
+    public static GameManager Instance
+    {
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = GameObject.FindFirstObjectByType<GameManager>();
+            }
+
+            return _instance;
+        }
+    }
 
     void Update()
     {
@@ -18,7 +34,7 @@ public class GameManager : MonoBehaviour
 
             pointsEarnedThisRound += pointsPerSecond;
 
-            HudManager.Instance.SetPointsText(pointsEarnedThisRound);
+            HudManager.Instance.SetPointsText(pointsEarnedThisRound , maxPointsToWinRound);
         }
     }
 
@@ -26,6 +42,6 @@ public class GameManager : MonoBehaviour
     {
         pointsEarnedThisRound += points;
 
-        HudManager.Instance.SetPointsText(pointsEarnedThisRound);
+        HudManager.Instance.SetPointsText(pointsEarnedThisRound, maxPointsToWinRound);
     }
 }

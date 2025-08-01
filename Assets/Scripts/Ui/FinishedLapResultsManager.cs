@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class FinishedLapResultsManager : MonoBehaviour
@@ -18,6 +19,9 @@ public class FinishedLapResultsManager : MonoBehaviour
         }
     }
 
+    [SerializeField] TextMeshProUGUI pointsText;
+    [SerializeField] TextMeshProUGUI moneyText;
+
     public void OpenResultsScreen()
     {
         ObjectPlacerSingleton.Instance.CancelPlacementOfObject();
@@ -26,6 +30,8 @@ public class FinishedLapResultsManager : MonoBehaviour
         //Turn down the players hand visuals
         handCardCanvasGroup.interactable = false;
         handCardCanvasGroup.alpha = 0;
+
+        pointsText.text = "Points: " + GameManager.Instance.pointsEarnedThisRound + " / " + GameManager.Instance.maxPointsToWinRound;
     }
 
     public void ClickShopButton()

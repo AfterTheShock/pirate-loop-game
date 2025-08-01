@@ -20,11 +20,9 @@ public class HudManager : MonoBehaviour
         }
     }
 
-    public int maxPointsToWinRound = 10;
-
     private void Start()
     {
-        SetPointsText(0);
+        SetPointsText(0, GameManager.Instance.maxPointsToWinRound);
     }
 
     public void SetMoneyText(int money)
@@ -32,7 +30,7 @@ public class HudManager : MonoBehaviour
         MoneyText.text = money + "$";
     }
 
-    public void SetPointsText(int points)
+    public void SetPointsText(int points, int maxPointsToWinRound)
     {
         PointsText.text = "Points: " + points + " / " + maxPointsToWinRound;
     }
