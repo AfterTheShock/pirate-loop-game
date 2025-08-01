@@ -13,6 +13,7 @@ public class CardScriptableObject : ScriptableObject
 
     public CardType cardType;
 
+    public PlacementObject placementObject;
 }
 
 public enum CardType

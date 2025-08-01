@@ -35,18 +35,6 @@ public class ObjectPlacerSingleton : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (!inPlacementMode)
-            {
-                EnterPlacementMode();
-            }
-            else
-            {
-                ExitPlacementMode();
-            }
-        }
-
         if (inPlacementMode)
         {
             UpdateCurrentPlacementPosition();
@@ -58,9 +46,10 @@ public class ObjectPlacerSingleton : MonoBehaviour
         }
     }
 
-    public void SetObjectToPlace(PlacementObject objectToPlace)
+    public void CardToPlace(CardScriptableObject cardScriptableObject)
     {
-        this.objectToPlace = objectToPlace;
+        objectToPlace = cardScriptableObject.placementObject;
+        EnterPlacementMode();
     }
     
     private void EnterPlacementMode()

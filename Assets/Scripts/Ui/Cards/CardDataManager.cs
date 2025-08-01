@@ -56,6 +56,7 @@ public class CardDataManager : MonoBehaviour
         if (stock <= 0) Destroy(this.gameObject);
     }
 
+    
     private void SetCardVisuals()
     {
         if (cardNameText != null) cardNameText.text = cardScriptableObject.cardName;
@@ -66,4 +67,10 @@ public class CardDataManager : MonoBehaviour
 
         if (cardImage != null) cardImage.sprite = cardScriptableObject.cardImage;
     }
+
+    public void PlaceCard()
+    {
+        ObjectPlacerSingleton.Instance.CardToPlace(cardScriptableObject);
+        Destroy(this.gameObject);
+    } 
 }
