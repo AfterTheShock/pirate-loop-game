@@ -7328,6 +7328,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5c75180e56d6df840be01db67d5efa26, type: 2}
   - {fileID: 11400000, guid: 907a728e1137bda4e9716c23b414e24e, type: 2}
   - {fileID: 11400000, guid: 9994632fceaca7f4da53b68d7a61f917, type: 2}
+  - {fileID: 11400000, guid: e1b107ac445cf194ebd64574bdaa7a38, type: 2}
   cardsHolder: {fileID: 2099311456}
   visualsShopHolder: {fileID: 899296495}
   visualsShopCanvasGroup: {fileID: 899296497}
