@@ -54,7 +54,7 @@ MonoBehaviour:
   coneRange: 1.78
   slowSeconds: 0.2
   slowPercent: 0.25
-  damageCooldown: 0.1
+  damageCooldown: 0.15
   damagePerTick: 1
 --- !u!65 &4068212075244628665
 BoxCollider:

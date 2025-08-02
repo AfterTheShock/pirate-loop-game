@@ -28,7 +28,12 @@ public class FollowPointsAndMove : MonoBehaviour
     private float percentageOfSlowSpeedReduction;
     
     private Rigidbody rigidBody;
-    
+
+    [Header("Reverse")]
+    public float timeGoingInReverse = 0;
+    private int pointsCrossed = 0;
+    private int maxNumberOfPoints;
+
 
     void Start()
     {
@@ -37,7 +42,9 @@ public class FollowPointsAndMove : MonoBehaviour
         defaultRotateSpeed = currentRotateSpeed;
 
         pointsArray = SplineManagerSingleton.Instance.pointsArray;
-        
+
+        maxNumberOfPoints = pointsArray.Length;
+
         rigidBody =  GetComponent<Rigidbody>();
     }
 
@@ -85,6 +92,7 @@ public class FollowPointsAndMove : MonoBehaviour
         else if(isStunned && stunnedForXSeconds <= 0)
         {
             isStunned = false;
+            rigidBody.isKinematic = true;
             stunnedForXSeconds = 0;
             percentageOfSlowSpeedReduction = 0;
         }
@@ -108,25 +116,58 @@ public class FollowPointsAndMove : MonoBehaviour
     {
         float distanceToCurrentPoint = Vector3.Distance(transform.position, pointsArray[currentIndex].position);
 
-        if(distanceToCurrentPoint <= distanceToChangePoint) //Change point
+        if(timeGoingInReverse > 0) timeGoingInReverse -= Time.deltaTime;
+
+        if (distanceToCurrentPoint <= distanceToChangePoint) //Change point
         {
-            if (pointsArray.Length <= currentIndex + 1)
-            {
-                //If this is true finished the current lap and start over
-                currentIndex = 0;
-                FinishedCurrentLap();
+            if(timeGoingInReverse <= 0.1f)
+            {//Is going forwards normally
+
+                if (pointsArray.Length <= currentIndex + 1)
+                {
+                    //If this is true finished the current lap and start over
+                    currentIndex = 0;
+                    //FinishedCurrentLap();
+                }
+                else
+                {
+                    //Go to next point
+                    currentIndex++;
+                }
+
+                pointsCrossed++;
+                //Check if finished one lap
+                if(pointsCrossed >= maxNumberOfPoints)
+                {
+                    FinishedCurrentLap();
+                    pointsCrossed = 0;
+                }
             }
             else
-            {
-                //Go to next point
-                currentIndex++;
+            {//Is going in reverse
+
+                if (-1 >= currentIndex - 1)
+                {
+                    //If this is true finished the current lap and start over
+                    currentIndex = pointsArray.Length - 1;
+                }
+                else
+                {
+                    //Go to next point
+                    currentIndex--;
+
+                    if (currentIndex <= -maxNumberOfPoints) currentIndex = 0;
+                }
+                pointsCrossed--;
             }
         }
     }
 
     public void KnockbackWalker(float secondsStunned, float forcePower)
     {
+        isStunned = true;
         StunWalker(secondsStunned);
+        rigidBody.isKinematic = false;
         rigidBody.AddForce(-transform.forward * forcePower, ForceMode.Impulse);
     }
     
