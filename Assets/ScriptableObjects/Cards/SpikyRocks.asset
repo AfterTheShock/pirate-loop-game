@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8441d44390963ba4bbad3982bacd1087, type: 3}
+  m_Name: SpikyRocks
+  m_EditorClassIdentifier: 
+  cardName: Spiky Rocks
+  cardDescription: Rocks that damage \nand slightly slow down \n the ship
+  cardPrice: 5
+  minStock: 1
+  maxStock: 1
+  cardImage: {fileID: 0}
+  cardType: 1
+  placementObject:
+    objectPrefab: {fileID: 5077759077619936721, guid: 769cd0e73d3c7d4429f9e7c0b9efa2ae, type: 3}
+    objectPrefabPreview: {fileID: 3860309333678786259, guid: 6c14f919e6aeea44fa196b947d2088bc, type: 3}

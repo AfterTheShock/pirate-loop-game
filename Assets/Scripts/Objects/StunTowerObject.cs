@@ -14,11 +14,13 @@ public class StunTowerObject : MonoBehaviour
     private Transform walkerTransform;
     private FollowPointsAndMove walkerMovement;
     
+    [SerializeField] Animator animator;
 
     private void Awake()
     {
         walkerMovement = FindFirstObjectByType<FollowPointsAndMove>();
         walkerTransform = walkerMovement.transform;
+
     }
 
     private void Update()
@@ -29,6 +31,8 @@ public class StunTowerObject : MonoBehaviour
         {
             walkerMovement.StunWalker(stunSeconds);
             lastDamageTime = Time.time;
+
+            animator.Play("ShootCatapult");
         }
 
         if (distanceToWalker.magnitude < circleRadius)

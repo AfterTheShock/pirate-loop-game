@@ -301,7 +301,7 @@ MonoBehaviour:
   boxSpawnPoint: {fileID: 2525300938328352310}
   boxSize: {x: 0.55, y: 0.4, z: 0.3}
   stunSeconds: 0.6
-  knockbackPower: 6
+  knockbackPower: 8
   damage: 2
 --- !u!95 &8422357891944448824
 Animator:
