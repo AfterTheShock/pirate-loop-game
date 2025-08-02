@@ -28,9 +28,16 @@ public class SetupPreviewObject : MonoBehaviour
                 Rigidbody newRigidbody = gameObject.AddComponent<Rigidbody>();
                 newRigidbody.isKinematic = true;
             }
-        
-            Collider col = GetComponent<Collider>();
-            col.isTrigger = true;
+
+            if (TryGetComponent(out Collider oldCollider))
+            {
+                oldCollider.isTrigger = true;
+            }
+            else
+            {
+                Collider newCollider = gameObject.AddComponent<BoxCollider>();
+                newCollider.isTrigger = true;
+            }
             
             List<MeshRenderer> meshRenderersList = new List<MeshRenderer>();
             
