@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8441d44390963ba4bbad3982bacd1087, type: 3}
-  m_Name: Slower
+  m_Name: StunTower
   m_EditorClassIdentifier: 
-  cardName: Slower
-  cardDescription: Slows the walker
-  cardPrice: 6
+  cardName: StunTower
+  cardDescription: 
+  cardPrice: 1
   minStock: 1
-  maxStock: 1
+  maxStock: 2
   cardImage: {fileID: 0}
-  cardType: 1
+  cardType: 0
   placementObject:
-    objectPrefab: {fileID: 7001325273990394800, guid: 4ad98d81b233f83429cb2879db765176, type: 3}
-    objectPrefabPreview: {fileID: 7001325273990394800, guid: cbfc54f29711432479d7d8add04b5e48, type: 3}
+    objectPrefab: {fileID: 5388152813789752450, guid: f579a66b177ca2b4b8d4ec87207871cc, type: 3}
+    objectPrefabPreview: {fileID: 5388152813789752450, guid: 4a0ab260c75c563448b8318b194d9792, type: 3}
