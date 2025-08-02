@@ -24,6 +24,9 @@ public class FinishedLapResultsManager : MonoBehaviour
 
     public void OpenResultsScreen()
     {
+        //Calculate ammount of money to give based on points erned
+        GameManager.Instance.GiveMoneyToPlayer(GameManager.Instance.pointsEarnedThisRound / 2, true);
+
         ObjectPlacerSingleton.Instance.CancelPlacementOfObject();
         this.transform.GetChild(0).gameObject.SetActive(true);
         Time.timeScale = 0f;
@@ -32,6 +35,7 @@ public class FinishedLapResultsManager : MonoBehaviour
         handCardCanvasGroup.alpha = 0;
 
         pointsText.text = "Points: " + GameManager.Instance.pointsEarnedThisRound + " / " + GameManager.Instance.maxPointsToWinRound;
+        moneyText.text = "+" + GameManager.Instance.moneyEarnedThisRound + "$";
     }
 
     public void ClickShopButton()

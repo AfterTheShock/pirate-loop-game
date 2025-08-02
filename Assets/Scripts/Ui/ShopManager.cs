@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class ShopManager : MonoBehaviour
 {
-    public int  currentAmmountOfMoney = 0;
-
     public RectTransform cardInitialPos;
 
     private static ShopManager _instance;
@@ -47,7 +45,7 @@ public class ShopManager : MonoBehaviour
 
     private void Start()
     {
-        HudManager.Instance.SetMoneyText(currentAmmountOfMoney);
+        HudManager.Instance.SetMoneyText(GameManager.Instance.currentAmmountOfMoney);
         ExitShopButton();
     }
 
@@ -65,16 +63,16 @@ public class ShopManager : MonoBehaviour
 
     public void SubstractMoney(int ammountToPay)
     {
-        currentAmmountOfMoney -= ammountToPay;
+        GameManager.Instance.currentAmmountOfMoney -= ammountToPay;
 
-        HudManager.Instance.SetMoneyText(currentAmmountOfMoney);
+        HudManager.Instance.SetMoneyText(GameManager.Instance.currentAmmountOfMoney);
     }
 
     public void AddMoney(int ammountToGive)
     {
-        currentAmmountOfMoney += ammountToGive;
+        GameManager.Instance.currentAmmountOfMoney += ammountToGive;
 
-        HudManager.Instance.SetMoneyText(currentAmmountOfMoney);
+        HudManager.Instance.SetMoneyText(GameManager.Instance.currentAmmountOfMoney);
     }
 
     public void CardBought(CardScriptableObject cardScriptableObject)

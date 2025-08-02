@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Slower
   m_EditorClassIdentifier: 
   cardName: Slower
-  cardDescription: Slows the walker
+  cardDescription: Slows the ship
   cardPrice: 6
   minStock: 1
   maxStock: 1

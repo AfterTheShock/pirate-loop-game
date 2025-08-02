@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 3014445608319658913}
   - component: {fileID: 1873531023324524811}
   - component: {fileID: 6706986011194778465}
+  - component: {fileID: 7847250199920887869}
   m_Layer: 0
   m_Name: StunTower
   m_TagString: Untagged
@@ -154,5 +155,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circleRadius: 2
-  stunSeconds: 1
-  stunCooldown: 2
+  stunSeconds: 0.5
+  stunCooldown: 3
+--- !u!95 &7847250199920887869
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5388152813789752450}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 43484b0c93a1a084d84d2312a06a5ab1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8441d44390963ba4bbad3982bacd1087, type: 3}
+  m_Name: RegenerativeWall
+  m_EditorClassIdentifier: 
+  cardName: Regenerative wall
+  cardDescription: A wall that \n stuns the ship \n (Consumable)
+  cardPrice: 5
+  minStock: 1
+  maxStock: 1
+  cardImage: {fileID: 0}
+  cardType: 1
+  placementObject:
+    objectPrefab: {fileID: 9161418654520767292, guid: 83ebc32d94112bd4daad7ad08192dea6, type: 3}
+    objectPrefabPreview: {fileID: 5687932209457044082, guid: 77072741d1b02a74287b727e1eb3130e, type: 3}

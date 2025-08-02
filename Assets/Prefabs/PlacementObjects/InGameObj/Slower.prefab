@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2328029089164399393}
   - component: {fileID: 5017359096310595985}
   - component: {fileID: 9088899236078792792}
+  - component: {fileID: 3560727249623730363}
   m_Layer: 7
   m_Name: Slower
   m_TagString: Untagged
@@ -72,6 +73,28 @@ CapsuleCollider:
   m_Height: 1.1662369
   m_Direction: 1
   m_Center: {x: 0, y: 0.0055066347, z: 0}
+--- !u!95 &3560727249623730363
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7001325273990394800}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e61b366ee8b5c4743bc49fbc30597a5a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7696457758845502871
 GameObject:
   m_ObjectHideFlags: 0

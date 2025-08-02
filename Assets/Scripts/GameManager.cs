@@ -52,10 +52,12 @@ public class GameManager : MonoBehaviour
         HudManager.Instance.SetPointsText(pointsEarnedThisRound, maxPointsToWinRound);
     }
 
-    private void GiveMoneyToPlayer(int moneyToGive)
+    public void GiveMoneyToPlayer(int moneyToGive, bool moneyGivenInsideOfRound = false)
     {
         currentAmmountOfMoney += moneyToGive;
-        moneyEarnedThisRound += moneyToGive;
+        if(moneyGivenInsideOfRound) moneyEarnedThisRound += moneyToGive;
+
+        HudManager.Instance.SetMoneyText(currentAmmountOfMoney);
     }
 
     public void AddOneLoop()
@@ -65,6 +67,7 @@ public class GameManager : MonoBehaviour
         maxPointsToWinRound += loopsMade * 5;
 
         pointsEarnedThisRound = 0;
+        moneyEarnedThisRound = 0;
 
         HudManager.Instance.SetPointsText(pointsEarnedThisRound, maxPointsToWinRound);
     }

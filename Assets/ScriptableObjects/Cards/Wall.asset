@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wall
   m_EditorClassIdentifier: 
   cardName: Wall
-  cardDescription: A wall that \n stuns the walker \n (Consumable)
+  cardDescription: A wall that \n stuns the ship \n (Consumable)
   cardPrice: 5
   minStock: 1
   maxStock: 1

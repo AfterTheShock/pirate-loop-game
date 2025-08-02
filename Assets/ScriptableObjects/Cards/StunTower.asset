@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8441d44390963ba4bbad3982bacd1087, type: 3}
   m_Name: StunTower
   m_EditorClassIdentifier: 
-  cardName: StunTower
-  cardDescription: 
+  cardName: Stun Tower
+  cardDescription: Stuns the ship in place
   cardPrice: 1
   minStock: 1
   maxStock: 2

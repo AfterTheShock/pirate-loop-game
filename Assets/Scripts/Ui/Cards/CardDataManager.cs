@@ -46,7 +46,7 @@ public class CardDataManager : MonoBehaviour
         if (cardScriptableObject == null) return;
 
         //Check if player has enough money
-        if (ShopManager.Instance.currentAmmountOfMoney < cardScriptableObject.cardPrice) 
+        if (GameManager.Instance.currentAmmountOfMoney < cardScriptableObject.cardPrice) 
         {
             //Not enough money
             return;

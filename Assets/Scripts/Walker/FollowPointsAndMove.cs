@@ -86,6 +86,7 @@ public class FollowPointsAndMove : MonoBehaviour
         {
             isStunned = false;
             stunnedForXSeconds = 0;
+            percentageOfSlowSpeedReduction = 0;
         }
     }
 
@@ -137,6 +138,8 @@ public class FollowPointsAndMove : MonoBehaviour
     
     public void SlowWalker(float secondsSlowed, float slowPercent)
     {
+        if (slowPercent < percentageOfSlowSpeedReduction) return;
+
         percentageOfSlowSpeedReduction = slowPercent;
         slowedForXSeconds = secondsSlowed;
     }

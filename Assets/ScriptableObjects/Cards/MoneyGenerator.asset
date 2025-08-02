@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8441d44390963ba4bbad3982bacd1087, type: 3}
+  m_Name: MoneyGenerator
+  m_EditorClassIdentifier: 
+  cardName: Money Generator
+  cardDescription: Generates money passively
+  cardPrice: 10
+  minStock: 1
+  maxStock: 2
+  cardImage: {fileID: 0}
+  cardType: 0
+  placementObject:
+    objectPrefab: {fileID: 8665557102762733369, guid: 0ceee49ece8f58140adf9484b33debe8, type: 3}
+    objectPrefabPreview: {fileID: 4439477136006333250, guid: 15e911c152963c540882371bbe9e74bd, type: 3}
