@@ -15,7 +15,8 @@ MonoBehaviour:
   cardName: Flamethrower
   cardDescription: A lethal cone \n of fire
   cardPrice: 2
-  stock: 2
+  minStock: 1
+  maxStock: 1
   cardImage: {fileID: 0}
   cardType: 1
   placementObject:

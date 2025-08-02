@@ -10,6 +10,7 @@ public class WallObject : MonoBehaviour
     [Header("Effects")]
     [SerializeField] private float stunSeconds;
     [SerializeField] private float knockbackPower;
+    [SerializeField] private int damage = 5;
 
     private LayerMask walkerLayerMask;
     private bool alreadyStunned;
@@ -28,6 +29,7 @@ public class WallObject : MonoBehaviour
             {
                 alreadyStunned = true;
                 hits[0].gameObject.GetComponent<FollowPointsAndMove>().KnockbackWalker(stunSeconds, knockbackPower);
+                hits[0].gameObject.GetComponent<WalkerInteractions>().TakeDamage(damage);
                 DestroyObject();
             }
         }

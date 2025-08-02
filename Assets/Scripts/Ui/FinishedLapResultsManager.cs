@@ -38,5 +38,6 @@ public class FinishedLapResultsManager : MonoBehaviour
     {
         this.transform.GetChild(0).gameObject.SetActive(false);
         ShopManager.Instance.EnterShop();
+        GameManager.Instance.AddOneLoop();
     }
 }

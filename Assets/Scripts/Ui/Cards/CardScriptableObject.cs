@@ -9,7 +9,9 @@ public class CardScriptableObject : ScriptableObject
 
     public int cardPrice = 1;
 
-    public int stock = 1;
+    public int minStock = 1;
+
+    public int maxStock = 2;
 
     public Sprite cardImage;
 

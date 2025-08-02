@@ -11,6 +11,7 @@ public class FlamethrowerObject : MonoBehaviour
     [SerializeField] private float slowSeconds;
     [SerializeField] private float slowPercent;
     [SerializeField] private float damageCooldown;
+    [SerializeField] private int damagePerTick = 1;
     
     private float lastDamageTime = Mathf.NegativeInfinity;
     
@@ -32,8 +33,8 @@ public class FlamethrowerObject : MonoBehaviour
         
         if (isInsideFlames && Time.time - lastDamageTime >= damageCooldown)
         {
-            walkerMovement.SlowWalker(slowSeconds, slowPercent);
-            walkerInteractions.TakeDamage();
+            if(slowPercent != 0) walkerMovement.SlowWalker(slowSeconds, slowPercent);
+            walkerInteractions.TakeDamage(damagePerTick);
             lastDamageTime = Time.time;
         }
     }

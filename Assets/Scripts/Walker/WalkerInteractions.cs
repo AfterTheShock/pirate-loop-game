@@ -4,8 +4,8 @@ public class WalkerInteractions : MonoBehaviour
 {
     [SerializeField] private int minimumPoints;
     
-    public void TakeDamage()
+    public void TakeDamage(int damageTaken = 1)
     {
-        GameManager.Instance.GivePointsToPlayer(minimumPoints);
+        GameManager.Instance.GivePointsToPlayer(damageTaken);
     }
 }

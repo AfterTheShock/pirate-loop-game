@@ -3,9 +3,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int pointsEarnedThisRound;
-    public int maxPointsToWinRound = 10;
-    
-    [SerializeField] int pointsPerSecond = 1;
+    public int maxPointsToWinRound = 20;
+
+    public int currentAmmountOfMoney = 5;
+    public int moneyEarnedThisRound = 0;
+
+    public int loopsMade = 0;
+
+    [SerializeField] int pointsPerTick = 1;
+    [SerializeField] float intervalToGivePoints = 1;
 
     private float timeSinceLastSecond;
 
@@ -23,15 +29,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
+
     void Update()
     {
         timeSinceLastSecond += Time.deltaTime;
 
-        if(timeSinceLastSecond >= 1)
+        if(timeSinceLastSecond >= intervalToGivePoints)
         {
             timeSinceLastSecond = 0;
 
-            pointsEarnedThisRound += pointsPerSecond;
+            pointsEarnedThisRound += pointsPerTick;
 
             HudManager.Instance.SetPointsText(pointsEarnedThisRound , maxPointsToWinRound);
         }
@@ -40,6 +48,23 @@ public class GameManager : MonoBehaviour
     public void GivePointsToPlayer(int points)
     {
         pointsEarnedThisRound += points;
+
+        HudManager.Instance.SetPointsText(pointsEarnedThisRound, maxPointsToWinRound);
+    }
+
+    private void GiveMoneyToPlayer(int moneyToGive)
+    {
+        currentAmmountOfMoney += moneyToGive;
+        moneyEarnedThisRound += moneyToGive;
+    }
+
+    public void AddOneLoop()
+    {
+        this.loopsMade++;
+
+        maxPointsToWinRound += loopsMade * 5;
+
+        pointsEarnedThisRound = 0;
 
         HudManager.Instance.SetPointsText(pointsEarnedThisRound, maxPointsToWinRound);
     }

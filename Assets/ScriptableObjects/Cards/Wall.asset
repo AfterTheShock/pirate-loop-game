@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Wall
   m_EditorClassIdentifier: 
   cardName: Wall
-  cardDescription: A wall that \n stuns the walker
+  cardDescription: A wall that \n stuns the walker \n (Consumable)
   cardPrice: 5
-  stock: 1
+  minStock: 1
+  maxStock: 2
   cardImage: {fileID: 0}
   cardType: 1
   placementObject:

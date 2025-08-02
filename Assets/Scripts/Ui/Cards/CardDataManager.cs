@@ -24,7 +24,7 @@ public class CardDataManager : MonoBehaviour
 
         if (cardScriptableObject == null) return;
 
-        stock = cardScriptableObject.stock;
+        //stock = Random.Range(cardScriptableObject.minStock, cardScriptableObject.maxStock + 1);
 
         SetCardVisuals();
     }
@@ -36,7 +36,7 @@ public class CardDataManager : MonoBehaviour
 
     private void Start()
     {
-        stock = cardScriptableObject.stock;
+        stock = Random.Range(cardScriptableObject.minStock, cardScriptableObject.maxStock + 1);
 
         SetCardVisuals();
     }

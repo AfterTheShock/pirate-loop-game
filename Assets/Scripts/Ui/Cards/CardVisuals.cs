@@ -146,4 +146,8 @@ public class CardVisuals : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         isDescriptionShown = false;
     }
 
+    private void OnDisable()
+    {
+        if (isDescriptionShown) cardDataManager.OnHoverOutsideCard();
+    }
 }

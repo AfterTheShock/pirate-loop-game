@@ -72,7 +72,7 @@ MonoBehaviour:
   collidingObjects: []
   invalidLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 896
 --- !u!54 &3023787121660264312
 Rigidbody:
   m_ObjectHideFlags: 0
