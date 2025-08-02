@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectPlacerSingleton : MonoBehaviour
@@ -13,7 +14,7 @@ public class ObjectPlacerSingleton : MonoBehaviour
     private bool validPlacement;
     
     private GameObject previewedObject;
-    private MeshRenderer previewObjMeshRenderer; // no lo puede encontrar
+    private List<MeshRenderer> previewObjMeshRenderers;
     
     private const float PREVIEW_ROTATION_SPEED = 10f;
 
@@ -63,8 +64,9 @@ public class ObjectPlacerSingleton : MonoBehaviour
     private void EnterPlacementMode()
     {
         inPlacementMode = true;
+        GameManager.Instance.HideCursor();
         previewedObject = Instantiate(objectToPlace.objectPrefabPreview, MouseWorldPosition(), Quaternion.identity);
-        previewObjMeshRenderer = previewedObject.GetComponentInChildren<MeshRenderer>();
+        previewObjMeshRenderers = previewedObject.GetComponent<PreviewObjectCheck>().PreviewObjectsMeshRenderers;
 
         candsInHandCanvasGroup.alpha = cardsAlphaWhenPlacing;
         candsInHandCanvasGroup.interactable = false;
@@ -105,6 +107,7 @@ public class ObjectPlacerSingleton : MonoBehaviour
     private void ExitPlacementMode()
     {
         inPlacementMode = false;
+        GameManager.Instance.ShowCursor();
         objectToPlace = null;
         cardBeingPlacedScriptableObject = null;
         Destroy(previewedObject);
@@ -117,13 +120,19 @@ public class ObjectPlacerSingleton : MonoBehaviour
     private void SetValidPreviewState()
     {
         validPlacement = true;
-        previewObjMeshRenderer.material.color = validColor;
+        foreach (var mesh in previewObjMeshRenderers)
+        {
+            mesh.material.color = validColor;
+        }
     }
 
     private void SetInvalidPreviewState()
     {
         validPlacement = false;
-        previewObjMeshRenderer.material.color = invalidColor;
+        foreach (var mesh in previewObjMeshRenderers)
+        {
+            mesh.material.color = invalidColor;
+        }
     }
     
     private bool CanPlaceObject()

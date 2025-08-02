@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -28,9 +29,7 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
-
-
-
+    
     void Update()
     {
         timeSinceLastSecond += Time.deltaTime;
@@ -70,5 +69,15 @@ public class GameManager : MonoBehaviour
         moneyEarnedThisRound = 0;
 
         HudManager.Instance.SetPointsText(pointsEarnedThisRound, maxPointsToWinRound);
+    }
+
+    public void HideCursor()
+    {
+        Cursor.visible = false;
+    }
+
+    public void ShowCursor()
+    {
+        Cursor.visible = true;
     }
 }

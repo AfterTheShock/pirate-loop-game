@@ -4,9 +4,12 @@ using UnityEngine;
 public class PreviewObjectCheck : MonoBehaviour
 {
     [SerializeField] private List<Collider> collidingObjects = new List<Collider>();
+    [SerializeField] bool canOnlyBePlacedInPath;
+    
+    public List<MeshRenderer> PreviewObjectsMeshRenderers;
+    
     public LayerMask invalidLayers = (1 << 7) + (1 << 8);
 
-    [SerializeField] bool canOnlyBePlacedInPath;
     public LayerMask pathLayer = 1 << 9;
 
     private bool isOnPath = false;
@@ -74,5 +77,10 @@ public class PreviewObjectCheck : MonoBehaviour
             if (isOnPath && collidingObjects.Count <= 0) IsValid = true;
             else IsValid = false;
         }
+    }
+    
+    public void SetPreviewMeshRenderers(List<MeshRenderer> meshRenderersList)
+    {
+        PreviewObjectsMeshRenderers = meshRenderersList;
     }
 }

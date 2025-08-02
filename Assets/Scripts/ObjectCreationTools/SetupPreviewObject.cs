@@ -7,8 +7,6 @@ using UnityEngine.Rendering;
 [ExecuteInEditMode]
 public class SetupPreviewObject : MonoBehaviour
 {
-    [SerializeField] private List<Transform> childObjects = new List<Transform>();
-
     [Conditional("UNITY_EDITOR")]
     private void Awake()
     {
@@ -33,16 +31,10 @@ public class SetupPreviewObject : MonoBehaviour
         
             Collider col = GetComponent<Collider>();
             col.isTrigger = true;
-        
-            childObjects.Clear();
-        
-            foreach (Transform child in transform)
-            {
-                childObjects.Add(child);
-                MeshRenderer meshRenderer = child.GetComponent<MeshRenderer>();
-                meshRenderer.material = ObjectPlacerSingleton.Instance.ObjectOverviewMaterial;
-                meshRenderer.shadowCastingMode = ShadowCastingMode.Off;
-            }
+            
+            List<MeshRenderer> meshRenderersList = new List<MeshRenderer>();
+            
+            SearchChildMesh(transform, meshRenderersList);
 
 #if UNITY_EDITOR
             EditorApplication.delayCall += () =>
@@ -53,4 +45,22 @@ public class SetupPreviewObject : MonoBehaviour
         }
     }
 
+    private void SearchChildMesh(Transform parent, List<MeshRenderer> meshRenderersList)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.TryGetComponent(out MeshRenderer childMesh))
+            {
+                childMesh.material = ObjectPlacerSingleton.Instance.ObjectOverviewMaterial;
+                childMesh.shadowCastingMode = ShadowCastingMode.Off;
+                meshRenderersList.Add(childMesh);
+            }
+            else
+            {
+                SearchChildMesh(child, meshRenderersList);
+            }
+        }
+
+        gameObject.GetComponent<PreviewObjectCheck>().SetPreviewMeshRenderers(meshRenderersList);
+    }
 }

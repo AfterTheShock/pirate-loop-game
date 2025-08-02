@@ -42,7 +42,7 @@ public class CardFlotatingDescriptionManager : MonoBehaviour
 
     private void Update()
     {
-        this.transform.position = Input.mousePosition;
+        this.transform.position = Input.mousePosition + new Vector3(32f,0f);
         thisChild.GetComponent<RectTransform>().anchorMax = new Vector2(0, 1);
         thisChild.GetComponent<RectTransform>().anchorMin = new Vector2(0, 1);
         thisChild.GetComponent<RectTransform>().SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, 1);
