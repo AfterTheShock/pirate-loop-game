@@ -1,23 +1,23 @@
 using UnityEngine;
 
-public class StunTowerObject : MonoBehaviour
+public class RangedTowerObject : MonoBehaviour
 {
     [Header("Stun Area")]
-    [SerializeField] private float circleRadius;
-    
+    [SerializeField] private float circleRadius = 8;
+
     [Header("Effects")]
-    [SerializeField] private float stunSeconds;
-    [SerializeField] private float stunCooldown;
-    
+    [SerializeField] private int damage = 5;
+    [SerializeField] private float hitCooldown = 2;
+
     private float lastDamageTime = Mathf.NegativeInfinity;
-    
+
     private Transform walkerTransform;
-    private FollowPointsAndMove walkerMovement;
-    
+    private WalkerInteractions walkerMovement;
+
 
     private void Awake()
     {
-        walkerMovement = FindFirstObjectByType<FollowPointsAndMove>();
+        walkerMovement = FindFirstObjectByType<WalkerInteractions>();
         walkerTransform = walkerMovement.transform;
     }
 
@@ -25,9 +25,9 @@ public class StunTowerObject : MonoBehaviour
     {
         Vector3 distanceToWalker = walkerTransform.position - transform.position;
 
-        if (distanceToWalker.magnitude < circleRadius && Time.time - lastDamageTime >= stunCooldown)
+        if (distanceToWalker.magnitude < circleRadius && Time.time - lastDamageTime >= hitCooldown)
         {
-            walkerMovement.StunWalker(stunSeconds);
+            walkerMovement.TakeDamage(damage);
             lastDamageTime = Time.time;
         }
 

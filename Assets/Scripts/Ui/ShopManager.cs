@@ -57,9 +57,10 @@ public class ShopManager : MonoBehaviour
         {
             visualsShopCanvasGroup.alpha += Time.unscaledDeltaTime * 6;
         }
-
+#if UNITY_EDITOR
         //SACAR ESTO ANDES DE BUILDEAR ES PARA TESTEAR
         if (Input.GetKeyDown(KeyCode.P)) EnterShop();
+#endif
     }
 
     public void SubstractMoney(int ammountToPay)

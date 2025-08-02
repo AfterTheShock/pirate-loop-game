@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8441d44390963ba4bbad3982bacd1087, type: 3}
-  m_Name: Wall
+  m_Name: RangedTower(Ballista)
   m_EditorClassIdentifier: 
-  cardName: Wall
-  cardDescription: A wall that \n stuns the walker \n (Consumable)
-  cardPrice: 5
+  cardName: Ballista
+  cardDescription: A turret with \n a lot of range
+  cardPrice: 10
   minStock: 1
   maxStock: 1
   cardImage: {fileID: 0}
   cardType: 1
   placementObject:
-    objectPrefab: {fileID: 5687932209457044082, guid: 3f2faef1a35e6ef4e8e7cd236a9db249, type: 3}
-    objectPrefabPreview: {fileID: 5687932209457044082, guid: 77072741d1b02a74287b727e1eb3130e, type: 3}
+    objectPrefab: {fileID: 5130944606772340891, guid: e906da9af1fbfd942a302f546eeb2da4, type: 3}
+    objectPrefabPreview: {fileID: 8531085028726931470, guid: 25c6e5d745bfd154dad9d475dc941c00, type: 3}

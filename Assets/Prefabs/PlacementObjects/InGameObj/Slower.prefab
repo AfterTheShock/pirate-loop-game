@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2328029089164399393}
   - component: {fileID: 5017359096310595985}
   - component: {fileID: 9088899236078792792}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Slower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circleRadius: 2
   slowSeconds: 0.1
-  slowPercent: 0.25
+  slowPercent: 0.35
 --- !u!136 &9088899236078792792
 CapsuleCollider:
   m_ObjectHideFlags: 0

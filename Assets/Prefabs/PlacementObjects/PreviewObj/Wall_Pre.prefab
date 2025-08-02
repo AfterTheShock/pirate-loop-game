@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 4416466344326592220}
   - component: {fileID: 2198336844380889033}
   - component: {fileID: 2070286541241505650}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Wall_Pre
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,6 +158,10 @@ MonoBehaviour:
   invalidLayers:
     serializedVersion: 2
     m_Bits: 384
+  canOnlyBePlacedInPath: 1
+  pathLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!54 &2070286541241505650
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -73,6 +73,10 @@ MonoBehaviour:
   invalidLayers:
     serializedVersion: 2
     m_Bits: 896
+  canOnlyBePlacedInPath: 0
+  pathLayer:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!54 &3023787121660264312
 Rigidbody:
   m_ObjectHideFlags: 0

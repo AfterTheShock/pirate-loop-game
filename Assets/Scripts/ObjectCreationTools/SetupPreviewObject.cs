@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -8,6 +9,7 @@ public class SetupPreviewObject : MonoBehaviour
 {
     [SerializeField] private List<Transform> childObjects = new List<Transform>();
 
+    [Conditional("UNITY_EDITOR")]
     private void Awake()
     {
         if (!Application.isPlaying)
@@ -41,11 +43,13 @@ public class SetupPreviewObject : MonoBehaviour
                 meshRenderer.material = ObjectPlacerSingleton.Instance.ObjectOverviewMaterial;
                 meshRenderer.shadowCastingMode = ShadowCastingMode.Off;
             }
-            
+
+#if UNITY_EDITOR
             EditorApplication.delayCall += () =>
             {
                 DestroyImmediate(this);
             };
+#endif
         }
     }
 
