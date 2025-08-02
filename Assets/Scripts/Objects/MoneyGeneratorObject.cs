@@ -7,6 +7,8 @@ public class MoneyGeneratorObject : MonoBehaviour
 
     [SerializeField] int moneyGivenPerTime = 3;
 
+    [SerializeField] Animator animator;
+
     void Update()
     {
         timePassedSinceMoneyGiven += Time.deltaTime;
@@ -16,6 +18,8 @@ public class MoneyGeneratorObject : MonoBehaviour
             timePassedSinceMoneyGiven = 0;
 
             GameManager.Instance.GiveMoneyToPlayer(moneyGivenPerTime);
+
+            animator.Play("ChestOpen");
         }
     }
 }
