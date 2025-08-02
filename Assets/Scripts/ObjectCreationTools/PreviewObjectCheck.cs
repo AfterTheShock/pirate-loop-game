@@ -3,16 +3,15 @@ using UnityEngine;
 
 public class PreviewObjectCheck : MonoBehaviour
 {
-    [SerializeField] private List<Collider> collidingObjects = new List<Collider>();
-    [SerializeField] bool canOnlyBePlacedInPath;
+    [SerializeField] private float effectRadius;
+    [SerializeField] private bool canOnlyBePlacedInPath;
+    
+    private List<Collider> collidingObjects = new List<Collider>();
+    private bool isOnPath = false;
     
     public List<MeshRenderer> PreviewObjectsMeshRenderers;
-    
     public LayerMask invalidLayers = (1 << 7) + (1 << 8);
-
     public LayerMask pathLayer = 1 << 9;
-
-    private bool isOnPath = false;
 
     public bool IsValid { get; private set; } = true;
 
