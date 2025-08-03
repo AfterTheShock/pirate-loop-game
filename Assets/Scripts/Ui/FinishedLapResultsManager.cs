@@ -58,7 +58,11 @@ public class FinishedLapResultsManager : MonoBehaviour
     private void CalculateMoney()
     {
         float coefficient = 2.4f;
+
+        if (GameManager.Instance.pointsEarnedThisRound > 140) coefficient = 3.2f;
+
         int ammountOfMoney = Mathf.RoundToInt(GameManager.Instance.pointsEarnedThisRound / coefficient);
+        if (GameManager.Instance.loopsMade <= 5) ammountOfMoney += (int)(GameManager.Instance.pointsEarnedThisRound / 6);
         GameManager.Instance.GiveMoneyToPlayer(ammountOfMoney, true);
     }
     

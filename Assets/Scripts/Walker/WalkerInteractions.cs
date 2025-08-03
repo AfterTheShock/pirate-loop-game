@@ -13,7 +13,7 @@ public class WalkerInteractions : MonoBehaviour
         if (hitSourcePrefab)
         {
             GameObject hitSource = Instantiate(hitSourcePrefab);
-            hitSource.GetComponent<AudioSource>().pitch = Random.Range(0.9f,1.1f);
+            hitSource.GetComponent<AudioSource>().pitch = Random.Range(0.85f,1.15f);
         }
     }
 }
