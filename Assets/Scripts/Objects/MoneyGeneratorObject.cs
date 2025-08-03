@@ -20,6 +20,7 @@ public class MoneyGeneratorObject : MonoBehaviour
             GameManager.Instance.GiveMoneyToPlayer(moneyGivenPerTime);
 
             animator.Play("ChestOpen");
+            AudioManagerSingleton.Instance.PlaySound("Coin", this.transform);
         }
     }
 }
