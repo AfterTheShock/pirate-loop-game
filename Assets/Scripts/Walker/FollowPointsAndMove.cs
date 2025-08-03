@@ -163,12 +163,11 @@ public class FollowPointsAndMove : MonoBehaviour
         }
     }
 
-    public void KnockbackWalker(float secondsStunned, float forcePower)
+    public void KnockbackWalker(Transform origin, float secondsStunned, float forcePower)
     {
-        isStunned = true;
         StunWalker(secondsStunned);
         rigidBody.isKinematic = false;
-        rigidBody.AddForce(-transform.forward * forcePower, ForceMode.Impulse);
+        rigidBody.AddForce((transform.position - origin.position).normalized * forcePower, ForceMode.Impulse);
     }
     
     public void StunWalker(float secondsStunned)

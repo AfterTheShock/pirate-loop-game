@@ -28,7 +28,7 @@ public class WallObject : MonoBehaviour
             if (!alreadyStunned)
             {
                 alreadyStunned = true;
-                hits[0].gameObject.GetComponent<FollowPointsAndMove>().KnockbackWalker(stunSeconds, knockbackPower);
+                hits[0].gameObject.GetComponent<FollowPointsAndMove>().KnockbackWalker(transform, stunSeconds, knockbackPower);
                 hits[0].gameObject.GetComponent<WalkerInteractions>().TakeDamage(damage);
                 DestroyObject();
             }

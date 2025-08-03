@@ -1,8 +1,12 @@
+using System.Collections;
 using UnityEngine;
 
 public class BombObject : MonoBehaviour
 {
     [SerializeField] private float circleRadius;
+    
+    [SerializeField] ParticleSystem particles;
+    [SerializeField] private GameObject model;
     
     private void Start()
     {
@@ -14,8 +18,22 @@ public class BombObject : MonoBehaviour
             if (dist <= circleRadius)
                 DestroyBuilding(obj);
         }
+        
+        particles.Play();
+        model.SetActive(false);
+        StartCoroutine(WaitForDestroy());
     }
 
+    private IEnumerator WaitForDestroy()
+    {
+        while (particles.IsAlive())
+        {
+            yield return null;
+        }
+        
+        Destroy(gameObject);
+    }
+    
     private void DestroyBuilding(GameObject building)
     {
         Destroy(building);

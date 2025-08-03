@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circleRadius: 2
-  damage: 1
+  damage: 3
   stunSeconds: 0.75
   stunCooldown: 4
   animator: {fileID: 8498244165138482057}
