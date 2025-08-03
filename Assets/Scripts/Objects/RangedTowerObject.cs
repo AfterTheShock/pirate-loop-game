@@ -14,6 +14,7 @@ public class RangedTowerObject : MonoBehaviour
     private Transform walkerTransform;
     private WalkerInteractions walkerMovement;
 
+    [SerializeField] Animator animator;
 
     private void Awake()
     {
@@ -23,12 +24,15 @@ public class RangedTowerObject : MonoBehaviour
 
     private void Update()
     {
+        if (walkerMovement == null) return;
+
         Vector3 distanceToWalker = walkerTransform.position - transform.position;
 
         if (distanceToWalker.magnitude < circleRadius && Time.time - lastDamageTime >= hitCooldown)
         {
             walkerMovement.TakeDamage(damage);
             lastDamageTime = Time.time;
+            if(animator != null) animator.Play("BalistShoot");
         }
 
         if (distanceToWalker.magnitude < circleRadius)

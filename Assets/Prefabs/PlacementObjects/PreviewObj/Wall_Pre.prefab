@@ -68,8 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b51f3ff408f9ae49a80afeea0e39d68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collidingObjects: []
-  canOnlyBePlacedInPath: 0
+  effectRadius: 0
+  canOnlyBePlacedInPath: 1
   PreviewObjectsMeshRenderers:
   - {fileID: 1960880190926208042}
   - {fileID: 6497162949880498966}

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Bomb
   m_EditorClassIdentifier: 
   cardName: Bomb
-  cardDescription: Destroy any build in an area (Consumable)
-  cardPrice: 1
+  cardDescription: Destroy any build in an area\n (Consumable)
+  cardPrice: 10
   minStock: 1
   maxStock: 2
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: 32f18af0e254ded49a30bc97babbc77a, type: 3}
   cardType: 0
   placementObject:
     objectPrefab: {fileID: 2587703502784001306, guid: bd3164fe28f1caf428105bcf9c1bb9ca, type: 3}

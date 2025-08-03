@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinishedLapResultsManager : MonoBehaviour
 {
@@ -22,6 +23,9 @@ public class FinishedLapResultsManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI pointsText;
     [SerializeField] TextMeshProUGUI moneyText;
 
+    [SerializeField] GameObject shopButton;
+    [SerializeField] GameObject toMenuButton;
+
     public void OpenResultsScreen()
     {
         //Calculate ammount of money to give based on points erned
@@ -34,6 +38,13 @@ public class FinishedLapResultsManager : MonoBehaviour
         handCardCanvasGroup.interactable = false;
         handCardCanvasGroup.alpha = 0;
 
+        if(GameManager.Instance.pointsEarnedThisRound < GameManager.Instance.maxPointsToWinRound)
+        {
+            pointsText.color = Color.red;
+            shopButton.SetActive(false);
+            toMenuButton.SetActive(true);
+        }
+
         pointsText.text = "Points: " + GameManager.Instance.pointsEarnedThisRound + " / " + GameManager.Instance.maxPointsToWinRound;
         moneyText.text = "+" + GameManager.Instance.moneyEarnedThisRound + "$";
     }
@@ -43,5 +54,10 @@ public class FinishedLapResultsManager : MonoBehaviour
         this.transform.GetChild(0).gameObject.SetActive(false);
         ShopManager.Instance.EnterShop();
         GameManager.Instance.AddOneLoop();
+    }
+
+    public void ToMenuButton()
+    {
+        SceneManager.LoadScene(0);
     }
 }

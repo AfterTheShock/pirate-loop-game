@@ -17,10 +17,10 @@ public class MoneyGeneratorObject : MonoBehaviour
         {
             timePassedSinceMoneyGiven = 0;
 
-            GameManager.Instance.GiveMoneyToPlayer(moneyGivenPerTime);
+            if(GameManager.Instance) GameManager.Instance.GiveMoneyToPlayer(moneyGivenPerTime);
 
             animator.Play("ChestOpen");
-            AudioManagerSingleton.Instance.PlaySound("Coin", this.transform);
+            if (GameManager.Instance) AudioManagerSingleton.Instance.PlaySound("Coin", this.transform);
         }
     }
 }

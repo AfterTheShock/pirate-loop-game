@@ -74,9 +74,4 @@ public class RegenerativeWall : MonoBehaviour
         timeSinceBroken = 0;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawCube(boxSpawnPoint.position, boxSize * 2);
-    }
 }

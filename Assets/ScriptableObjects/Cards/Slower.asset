@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8441d44390963ba4bbad3982bacd1087, type: 3}
   m_Name: Slower
   m_EditorClassIdentifier: 
-  cardName: Slower
+  cardName: Iceberg
   cardDescription: Slows the ship
   cardPrice: 6
   minStock: 1
   maxStock: 1
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: ba3ac127f7f1d2246b68184f18d5b648, type: 3}
   cardType: 1
   placementObject:
     objectPrefab: {fileID: 7001325273990394800, guid: 4ad98d81b233f83429cb2879db765176, type: 3}

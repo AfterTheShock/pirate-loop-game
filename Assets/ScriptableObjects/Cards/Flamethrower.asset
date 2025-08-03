@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Flamethrower
   cardDescription: A lethal cone \n of fire
-  cardPrice: 2
+  cardPrice: 5
   minStock: 1
-  maxStock: 1
-  cardImage: {fileID: 0}
+  maxStock: 2
+  cardImage: {fileID: 21300000, guid: 3ac8095ad964bb244a910048dff0bffc, type: 3}
   cardType: 1
   placementObject:
     objectPrefab: {fileID: 2597425386111760868, guid: 894eaeb405ccf034a902f7a18b9bafb9, type: 3}

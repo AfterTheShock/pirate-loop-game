@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8441d44390963ba4bbad3982bacd1087, type: 3}
   m_Name: Wall
   m_EditorClassIdentifier: 
-  cardName: Wall
+  cardName: Broken Ship
   cardDescription: A wall that \n stuns the ship \n (Consumable)
   cardPrice: 5
   minStock: 1
-  maxStock: 1
-  cardImage: {fileID: 0}
+  maxStock: 2
+  cardImage: {fileID: 21300000, guid: f400bba6d39aa2f47ac33097b81495e1, type: 3}
   cardType: 1
   placementObject:
     objectPrefab: {fileID: 5687932209457044082, guid: 3f2faef1a35e6ef4e8e7cd236a9db249, type: 3}

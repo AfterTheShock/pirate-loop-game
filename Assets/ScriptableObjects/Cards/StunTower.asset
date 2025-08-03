@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8441d44390963ba4bbad3982bacd1087, type: 3}
   m_Name: StunTower
   m_EditorClassIdentifier: 
-  cardName: Stun Tower
-  cardDescription: Stuns the ship in place
-  cardPrice: 1
+  cardName: Catapult
+  cardDescription: Stuns the ship
+  cardPrice: 10
   minStock: 1
-  maxStock: 2
-  cardImage: {fileID: 0}
+  maxStock: 1
+  cardImage: {fileID: 21300000, guid: f999f600a3e78864bbf9e83dbbb5b357, type: 3}
   cardType: 0
   placementObject:
     objectPrefab: {fileID: 5388152813789752450, guid: f579a66b177ca2b4b8d4ec87207871cc, type: 3}

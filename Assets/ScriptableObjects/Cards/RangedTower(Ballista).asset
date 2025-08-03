@@ -16,8 +16,8 @@ MonoBehaviour:
   cardDescription: A turret with \n a lot of range
   cardPrice: 10
   minStock: 1
-  maxStock: 1
-  cardImage: {fileID: 0}
+  maxStock: 2
+  cardImage: {fileID: 21300000, guid: a7e364f584867e84f806c5c0fa20f914, type: 3}
   cardType: 1
   placementObject:
     objectPrefab: {fileID: 5130944606772340891, guid: e906da9af1fbfd942a302f546eeb2da4, type: 3}

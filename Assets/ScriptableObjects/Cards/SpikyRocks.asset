@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Spiky Rocks
   cardDescription: Rocks that damage \nand slightly slow down \n the ship
-  cardPrice: 5
+  cardPrice: 4
   minStock: 1
   maxStock: 1
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: 1d863147514d92d4885c7c22242324b5, type: 3}
   cardType: 1
   placementObject:
     objectPrefab: {fileID: 5077759077619936721, guid: 769cd0e73d3c7d4429f9e7c0b9efa2ae, type: 3}

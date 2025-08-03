@@ -18,6 +18,9 @@ public class CardDataManager : MonoBehaviour
 
     private Transform visualsChild;
 
+    [SerializeField] GameObject buyCardSuccesfullyAudioSourcePrefab;
+    [SerializeField] GameObject failToBuyCardAudioSourcePrefab;
+
     private void Awake()
     {
         visualsChild = this.transform.GetChild(0).GetChild(0);
@@ -49,8 +52,11 @@ public class CardDataManager : MonoBehaviour
         if (GameManager.Instance.currentAmmountOfMoney < cardScriptableObject.cardPrice) 
         {
             //Not enough money
+            Instantiate(failToBuyCardAudioSourcePrefab);
             return;
-        } 
+        }
+
+        Instantiate(buyCardSuccesfullyAudioSourcePrefab);
 
         //Substract the money from the player's money
         ShopManager.Instance.SubstractMoney(cardScriptableObject.cardPrice);

@@ -42,6 +42,12 @@ public class GameManager : MonoBehaviour
 
             HudManager.Instance.SetPointsText(pointsEarnedThisRound , maxPointsToWinRound);
         }
+
+        if(Time.timeScale > 0)
+        {
+            if (Input.GetKey(KeyCode.Space)) Time.timeScale = 3;
+            else Time.timeScale = 1;
+        }
     }
 
     public void GivePointsToPlayer(int points)
@@ -63,7 +69,7 @@ public class GameManager : MonoBehaviour
     {
         this.loopsMade++;
 
-        maxPointsToWinRound += loopsMade * 5;
+        maxPointsToWinRound += loopsMade * 3;
 
         pointsEarnedThisRound = 0;
         moneyEarnedThisRound = 0;

@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8441d44390963ba4bbad3982bacd1087, type: 3}
   m_Name: RegenerativeWall
   m_EditorClassIdentifier: 
-  cardName: Regenerative wall
-  cardDescription: A wall that \n stuns the ship \n (Consumable)
-  cardPrice: 5
+  cardName: Ghost Ship
+  cardDescription: A wall that \n stuns the ship \n (regenerates after some seconds
+  cardPrice: 8
   minStock: 1
   maxStock: 1
-  cardImage: {fileID: 0}
+  cardImage: {fileID: 21300000, guid: 4f9d0b630cd598246948d01fdc1769d4, type: 3}
   cardType: 1
   placementObject:
     objectPrefab: {fileID: 9161418654520767292, guid: 83ebc32d94112bd4daad7ad08192dea6, type: 3}

@@ -189,6 +189,6 @@ public class FollowPointsAndMove : MonoBehaviour
     {
         ammountOfLapsFinished++;
         // Pasar a la tienda
-        FinishedLapResultsManager.Instance.OpenResultsScreen();
+        if(FinishedLapResultsManager.Instance != null) FinishedLapResultsManager.Instance.OpenResultsScreen();
     }
 }

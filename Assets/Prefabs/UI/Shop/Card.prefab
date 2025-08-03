@@ -172,6 +172,8 @@ MonoBehaviour:
   cardPriceText: {fileID: 5878925457494080814}
   stockText: {fileID: 1816774100917972217}
   cardImage: {fileID: 7665728689018691807}
+  buyCardSuccesfullyAudioSourcePrefab: {fileID: 265165494478136848, guid: 6033fc56aebfcc94cbbc62c772744a10, type: 3}
+  failToBuyCardAudioSourcePrefab: {fileID: 265165494478136848, guid: 219020a372b6eeb4dbb790481a9d6656, type: 3}
 --- !u!1 &4194279902627235567
 GameObject:
   m_ObjectHideFlags: 0
