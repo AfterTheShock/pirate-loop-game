@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a1c415d59ed944aa505d73b5bc5277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleRadius: 3
+  circleRadius: 1.5
 --- !u!1 &3769299459850526677
 GameObject:
   m_ObjectHideFlags: 0

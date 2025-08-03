@@ -142,8 +142,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.73, y: 0.5, z: 0.75}
-  m_Center: {x: 0, y: 0.25, z: 0}
+  m_Size: {x: 0.7110181, y: 0.5, z: 0.9493102}
+  m_Center: {x: 0, y: 0.25, z: 0.09965509}
 --- !u!114 &9052410442174007751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   - {fileID: 6368660530668517836}
   invalidLayers:
     serializedVersion: 2
-    m_Bits: 896
+    m_Bits: 1920
   pathLayer:
     serializedVersion: 2
     m_Bits: 512

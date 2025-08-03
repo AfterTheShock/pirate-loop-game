@@ -28,8 +28,7 @@ public class FinishedLapResultsManager : MonoBehaviour
 
     public void OpenResultsScreen()
     {
-        //Calculate ammount of money to give based on points erned
-        GameManager.Instance.GiveMoneyToPlayer(GameManager.Instance.pointsEarnedThisRound / 2, true);
+        CalculateMoney();
 
         ObjectPlacerSingleton.Instance.CancelPlacementOfObject();
         this.transform.GetChild(0).gameObject.SetActive(true);
@@ -56,6 +55,13 @@ public class FinishedLapResultsManager : MonoBehaviour
         GameManager.Instance.AddOneLoop();
     }
 
+    private void CalculateMoney()
+    {
+        float coefficient = 2.4f;
+        int ammountOfMoney = Mathf.RoundToInt(GameManager.Instance.pointsEarnedThisRound / coefficient);
+        GameManager.Instance.GiveMoneyToPlayer(ammountOfMoney, true);
+    }
+    
     public void ToMenuButton()
     {
         SceneManager.LoadScene(0);

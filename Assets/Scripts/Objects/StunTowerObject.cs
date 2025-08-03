@@ -4,6 +4,7 @@ public class StunTowerObject : MonoBehaviour
 {
     [Header("Stun Area")]
     [SerializeField] private float circleRadius;
+    [SerializeField] private int damage;
     
     [Header("Effects")]
     [SerializeField] private float stunSeconds;
@@ -13,6 +14,7 @@ public class StunTowerObject : MonoBehaviour
     
     private Transform walkerTransform;
     private FollowPointsAndMove walkerMovement;
+    private WalkerInteractions walkerInteractions;
     
     [SerializeField] Animator animator;
 
@@ -20,7 +22,7 @@ public class StunTowerObject : MonoBehaviour
     {
         walkerMovement = FindFirstObjectByType<FollowPointsAndMove>();
         walkerTransform = walkerMovement.transform;
-
+        walkerInteractions = walkerTransform.GetComponent<WalkerInteractions>();
     }
 
     private void Update()
@@ -31,7 +33,7 @@ public class StunTowerObject : MonoBehaviour
         {
             walkerMovement.StunWalker(stunSeconds);
             lastDamageTime = Time.time;
-
+            walkerInteractions.TakeDamage(damage);
             animator.Play("ShootCatapult");
         }
 

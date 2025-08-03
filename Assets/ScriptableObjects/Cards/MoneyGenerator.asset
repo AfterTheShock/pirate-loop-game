@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8441d44390963ba4bbad3982bacd1087, type: 3}
   m_Name: MoneyGenerator
   m_EditorClassIdentifier: 
-  cardName: Tresure Chest
+  cardName: Treasure Chest
   cardDescription: Generates money passively
-  cardPrice: 10
-  minStock: 1
-  maxStock: 3
+  cardPrice: 30
+  minStock: 2
+  maxStock: 4
   cardImage: {fileID: 21300000, guid: 632c1e8f1b7a0da4d803140d0595830c, type: 3}
   cardType: 0
   placementObject:

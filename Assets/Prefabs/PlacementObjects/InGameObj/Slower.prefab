@@ -262,8 +262,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2328029089164399393}
   - component: {fileID: 5017359096310595985}
-  - component: {fileID: 9088899236078792792}
   - component: {fileID: 3560727249623730363}
+  - component: {fileID: 2683494731350568973}
   - component: {fileID: -1723810546845118506}
   - component: {fileID: 8037177799478385419}
   m_Layer: 7
@@ -307,30 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   circleRadius: 2
   slowSeconds: 0.1
-  slowPercent: 0.45
---- !u!136 &9088899236078792792
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7001325273990394800}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.36213923
-  m_Height: 1.1662369
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.0055066347, z: 0}
+  slowPercent: 0.6
 --- !u!95 &3560727249623730363
 Animator:
   serializedVersion: 7
@@ -353,6 +330,27 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!65 &2683494731350568973
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7001325273990394800}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.66957927, y: 0.7976723, z: 0.72853523}
+  m_Center: {x: 0, y: 0.22312556, z: 0}
 --- !u!82 &-1723810546845118506
 AudioSource:
   m_ObjectHideFlags: 0

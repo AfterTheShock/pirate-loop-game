@@ -53,11 +53,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 685e6b92ee2c5c44e8d7162ea2a85b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coneAngle: 45
+  coneAngle: 48
   coneRange: 1.78
   slowSeconds: 0.2
-  slowPercent: 0.25
-  damageCooldown: 0.15
+  slowPercent: 0.15
+  damageCooldown: 0.18
   damagePerTick: 1
 --- !u!65 &4068212075244628665
 BoxCollider:

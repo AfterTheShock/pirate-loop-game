@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToGiveMoney: 10
-  moneyGivenPerTime: 6
+  moneyGivenPerTime: 8
   animator: {fileID: 2690957463228437699}
 --- !u!95 &-2493926979297923333
 Animator:
@@ -212,8 +212,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.75, y: 0.7, z: 0.7}
-  m_Center: {x: 0, y: 0.25, z: 0}
+  m_Size: {x: 0.75, y: 0.6072781, z: 0.7}
+  m_Center: {x: 0, y: 0.29636097, z: 0}
 --- !u!82 &1349605813015609307
 AudioSource:
   m_ObjectHideFlags: 0

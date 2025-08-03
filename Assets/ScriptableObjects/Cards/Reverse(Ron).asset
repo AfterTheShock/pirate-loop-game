@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Bottle of Ron
   cardDescription: Makes the ship \nsail backwards
-  cardPrice: 15
+  cardPrice: 20
   minStock: 1
-  maxStock: 2
+  maxStock: 4
   cardImage: {fileID: 21300000, guid: 52d248d97a27c4f4596f32a940e93db5, type: 3}
   cardType: 0
   placementObject:

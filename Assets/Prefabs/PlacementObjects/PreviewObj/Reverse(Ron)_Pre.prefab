@@ -78,7 +78,7 @@ MonoBehaviour:
   - {fileID: 612231110964408053}
   invalidLayers:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 256
   pathLayer:
     serializedVersion: 2
     m_Bits: 512

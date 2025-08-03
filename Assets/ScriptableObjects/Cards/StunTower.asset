@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Catapult
   cardDescription: Stuns the ship
-  cardPrice: 10
+  cardPrice: 34
   minStock: 1
   maxStock: 1
   cardImage: {fileID: 21300000, guid: f999f600a3e78864bbf9e83dbbb5b357, type: 3}

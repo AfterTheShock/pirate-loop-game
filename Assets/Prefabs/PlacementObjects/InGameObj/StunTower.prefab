@@ -120,8 +120,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5944267232945472064}
   - {fileID: 8663551039918518404}
+  - {fileID: 5944267232945472064}
   - {fileID: 5809067664114819048}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0.40545392, y: 0, z: 0}
@@ -144,8 +144,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.73, y: 0.5, z: 0.75}
-  m_Center: {x: 0, y: 0.25, z: 0}
+  m_Size: {x: 0.6298417, y: 0.5, z: 0.8513429}
+  m_Center: {x: 0, y: 0.25, z: 0.104996264}
 --- !u!114 &6706986011194778465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,6 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   circleRadius: 2
+  damage: 1
   stunSeconds: 0.75
   stunCooldown: 4
   animator: {fileID: 8498244165138482057}

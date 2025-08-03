@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: Broken Ship
   cardDescription: A wall that \n stuns the ship \n (Consumable)
-  cardPrice: 5
-  minStock: 1
-  maxStock: 2
+  cardPrice: 6
+  minStock: 2
+  maxStock: 5
   cardImage: {fileID: 21300000, guid: f400bba6d39aa2f47ac33097b81495e1, type: 3}
   cardType: 1
   placementObject:

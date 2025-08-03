@@ -50,9 +50,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3551367280909686458}
   - component: {fileID: 8986240811930136883}
-  - component: {fileID: 7875927132695890953}
-  - component: {fileID: 3497231550044936904}
   - component: {fileID: 5169729474003508778}
+  - component: {fileID: 5868066491550114311}
   m_Layer: 0
   m_Name: SpikyRocks_Pre
   m_TagString: Untagged
@@ -96,21 +95,36 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.75, y: 0.55, z: 0.75}
+  m_Size: {x: 0.65, y: 0.5, z: 0.65}
   m_Center: {x: 0, y: 0.25, z: 0}
---- !u!114 &7875927132695890953
-MonoBehaviour:
+--- !u!54 &5169729474003508778
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3860309333678786259}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77bfe699b98e7ec4cb947b5f2444b5e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3497231550044936904
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &5868066491550114311
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -186,33 +200,6 @@ MonoBehaviour:
   pathLayer:
     serializedVersion: 2
     m_Bits: 512
---- !u!54 &5169729474003508778
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3860309333678786259}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &6690705835219667717
 GameObject:
   m_ObjectHideFlags: 0
