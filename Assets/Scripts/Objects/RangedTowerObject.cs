@@ -16,6 +16,8 @@ public class RangedTowerObject : MonoBehaviour
 
     [SerializeField] Animator animator;
 
+    [SerializeField] AudioSource shootAudioSource;
+
     private void Awake()
     {
         walkerMovement = FindFirstObjectByType<WalkerInteractions>();
@@ -32,7 +34,9 @@ public class RangedTowerObject : MonoBehaviour
         {
             walkerMovement.TakeDamage(damage);
             lastDamageTime = Time.time;
-            if(animator != null) animator.Play("BalistShoot");
+            if(animator != null && animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "BalistShoot") animator.Play("BalistShoot");
+
+            if (shootAudioSource != null) shootAudioSource.Play();
         }
 
         if (distanceToWalker.magnitude < circleRadius)

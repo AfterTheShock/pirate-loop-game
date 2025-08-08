@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -15,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] float intervalToGivePoints = 1;
 
     private float timeSinceLastSecond;
+
+    private bool isHoldingSpeedUpButton = false;
 
     private static GameManager _instance;
     public static GameManager Instance
@@ -45,9 +46,14 @@ public class GameManager : MonoBehaviour
 
         if(Time.timeScale > 0)
         {
-            if (Input.GetKey(KeyCode.Space)) Time.timeScale = 3;
-            else Time.timeScale = 1;
+            CheckIfSpeedUpTime();
         }
+    }
+
+    private void CheckIfSpeedUpTime()
+    {
+        if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(2) || Input.GetMouseButton(3)|| Input.GetMouseButton(4) || isHoldingSpeedUpButton) Time.timeScale = 3;
+        else Time.timeScale = 1;
     }
 
     public void GivePointsToPlayer(int points)
@@ -85,5 +91,10 @@ public class GameManager : MonoBehaviour
     public void ShowCursor()
     {
         Cursor.visible = true;
+    }
+
+    public void StartStopHoldingSpeedUpButton(bool isHolding)
+    {
+        isHoldingSpeedUpButton = isHolding;
     }
 }

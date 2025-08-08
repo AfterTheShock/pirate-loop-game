@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2328029089164399393}
   - component: {fileID: 485006203410418995}
   - component: {fileID: 6296415488373501072}
-  - component: {fileID: 7708350396082164929}
+  - component: {fileID: 8163192127189226480}
   m_Layer: 0
   m_Name: Slower_Pre
   m_TagString: Untagged
@@ -183,8 +183,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &7708350396082164929
-BoxCollider:
+--- !u!136 &8163192127189226480
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -201,9 +201,11 @@ BoxCollider:
   m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.7790314, y: 1.6225963, z: 0.7748945}
-  m_Center: {x: 0, y: -0.15447876, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.47
+  m_Height: 0.75
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &7696457758845502871
 GameObject:
   m_ObjectHideFlags: 0

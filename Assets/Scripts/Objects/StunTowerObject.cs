@@ -18,6 +18,8 @@ public class StunTowerObject : MonoBehaviour
     
     [SerializeField] Animator animator;
 
+    [SerializeField] AudioSource shootAudioSource;
+
     private void Awake()
     {
         walkerMovement = FindFirstObjectByType<FollowPointsAndMove>();
@@ -35,6 +37,7 @@ public class StunTowerObject : MonoBehaviour
             lastDamageTime = Time.time;
             walkerInteractions.TakeDamage(damage);
             animator.Play("ShootCatapult");
+            if (shootAudioSource != null) shootAudioSource.Play();
         }
 
         if (distanceToWalker.magnitude < circleRadius)

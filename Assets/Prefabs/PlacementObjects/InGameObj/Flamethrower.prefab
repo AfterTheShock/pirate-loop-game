@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 301440329425794897}
   - component: {fileID: 7619659366491707115}
-  - component: {fileID: 4068212075244628665}
+  - component: {fileID: 3807029012031319368}
   - component: {fileID: 1548996383298516579}
   - component: {fileID: 7295818313382388759}
   - component: {fileID: -208184493084277682}
@@ -57,10 +57,10 @@ MonoBehaviour:
   coneRange: 1.78
   slowSeconds: 0.2
   slowPercent: 0.15
-  damageCooldown: 0.18
-  damagePerTick: 1
---- !u!65 &4068212075244628665
-BoxCollider:
+  damageCooldown: 0.2
+  damagePerTick: 2
+--- !u!136 &3807029012031319368
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -77,9 +77,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.472526, y: 0.5122468, z: 0.472526}
-  m_Center: {x: 0, y: 0.24990824, z: 0}
+  serializedVersion: 2
+  m_Radius: 0.26
+  m_Height: 0.75
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!95 &1548996383298516579
 Animator:
   serializedVersion: 7

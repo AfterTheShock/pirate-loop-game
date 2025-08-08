@@ -15,9 +15,21 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] Slider ambianceSlider;
     [SerializeField] Slider masterSlider;
 
+    [SerializeField] GameObject mainMenuToTurnOn;
     private void Start()
     {
         menuHolder.SetActive(false);
+
+        masterMixer.GetFloat("MasterVolume", out float masterVolume);
+        masterMixer.GetFloat("MusicVolume", out float musicVolume);
+        masterMixer.GetFloat("SFXVolume", out float sfxVolume);
+        masterMixer.GetFloat("AmbianceVolume", out float ambianceVolume);
+
+        masterSlider.value = Mathf.Pow(10, masterVolume / 20);
+        musicSlider.value = Mathf.Pow(10, musicVolume / 20);
+        SFXSlider.value = Mathf.Pow(10, sfxVolume / 20);
+        ambianceSlider.value = Mathf.Pow(10, ambianceVolume / 20);
+
     }
 
     private void Update()
@@ -31,7 +43,7 @@ public class PauseMenuManager : MonoBehaviour
 
     public void OnChangeMusicSlider()
     {
-
+        
         float volume = Mathf.Log10(musicSlider.value) * 20; // Convert from dB to linear for slider
 
         masterMixer.SetFloat("MusicVolume", volume);
@@ -78,5 +90,8 @@ public class PauseMenuManager : MonoBehaviour
         Time.timeScale = 1;
         isInMenu = false;
         menuHolder.SetActive(false);
+
+        if(mainMenuToTurnOn != null) mainMenuToTurnOn.SetActive(true);
     }
+
 }

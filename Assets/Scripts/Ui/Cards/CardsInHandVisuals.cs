@@ -20,9 +20,17 @@ public class CardsInHandVisuals : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     private Transform childZero;
 
+    CardDataManager cardDataManager;
+
+    private float defaultTimeToShowDescription = 0.5f;
+    private float timeLeftToShowDescription = 0.5f;
+    private bool isDescriptionShown;
+
     private void Awake()
     {
         childZero = this.transform.GetChild(0);
+
+        cardDataManager = this.transform.parent.GetComponent<CardDataManager>();
     }
 
     private void Start()
@@ -44,6 +52,13 @@ public class CardsInHandVisuals : MonoBehaviour, IPointerEnterHandler, IPointerE
         ManageUpingOnHover();
         HoverSizeController();
 
+        if (isHovering && timeLeftToShowDescription > 0) timeLeftToShowDescription -= Time.unscaledDeltaTime;
+
+        if (isHovering && timeLeftToShowDescription <= 0 && !isDescriptionShown)
+        {
+            isDescriptionShown = true;
+            cardDataManager.OnHoverOverCard();
+        }
     }
 
     private void ManageUpingOnHover()
@@ -99,6 +114,8 @@ public class CardsInHandVisuals : MonoBehaviour, IPointerEnterHandler, IPointerE
         isHovering = true;
 
         targetPosition = hoveredTargetPosition;
+
+        timeLeftToShowDescription = defaultTimeToShowDescription;
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -106,5 +123,13 @@ public class CardsInHandVisuals : MonoBehaviour, IPointerEnterHandler, IPointerE
         isHovering = false;
 
         targetPosition = Vector3.zero;
+        if (isDescriptionShown) cardDataManager.OnHoverOutsideCard();
+
+        isDescriptionShown = false;
+    }
+
+    private void OnDisable()
+    {
+        if (isDescriptionShown) cardDataManager.OnHoverOutsideCard();
     }
 }
