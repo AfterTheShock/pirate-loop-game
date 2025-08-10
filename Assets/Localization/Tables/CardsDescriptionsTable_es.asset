@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: CardsDescriptionsTable_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: f09ed24dc5c2ea04782c28678f60bc46, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 94240481280
+    m_Localized: Destruye cualquier\n construccion en un area \n (Consumible)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 802801033216
+    m_Localized: Un cono letal \nde fuego
+    m_Metadata:
+      m_Items: []
+  - m_Id: 862087520256
+    m_Localized: Genera dinero \ncon el tiempo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 882190819328
+    m_Localized: Una torreta con \nmucho rango
+    m_Metadata:
+      m_Items: []
+  - m_Id: 907587330048
+    m_Localized: Un obstaculo que \naturde al barco \n(Se regenera luego\n de un
+      tiempo)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 947856842752
+    m_Localized: Hace que el barco \nnavege hacia atras \n(Consumible)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 980098457600
+    m_Localized: Relentiza al barco
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1004698050560
+    m_Localized: "Da\xF1a y relentiza\\n al barco cuando \\npasa por arriba"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1031877140480
+    m_Localized: Aturde al barco
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1057177182208
+    m_Localized: un obstaculo que \n aturde al barco \n (Consumible)
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

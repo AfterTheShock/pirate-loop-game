@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
 using UnityEngine.SceneManagement;
 
 public class FinishedLapResultsManager : MonoBehaviour
@@ -26,6 +27,8 @@ public class FinishedLapResultsManager : MonoBehaviour
     [SerializeField] GameObject shopButton;
     [SerializeField] GameObject toMenuButton;
 
+    [SerializeField] LocalizedString pointsString = new LocalizedString();
+
     public void OpenResultsScreen()
     {
         CalculateMoney();
@@ -44,7 +47,11 @@ public class FinishedLapResultsManager : MonoBehaviour
             toMenuButton.SetActive(true);
         }
 
-        pointsText.text = "Points: " + GameManager.Instance.pointsEarnedThisRound + " / " + GameManager.Instance.maxPointsToWinRound;
+        if (LocalizationUtilities.CheckIfLocalizedStringIsAssinged(pointsString))
+            pointsText.text = pointsString.GetLocalizedString() + ": " + GameManager.Instance.pointsEarnedThisRound + " / " + GameManager.Instance.maxPointsToWinRound;
+        else
+            pointsText.text = "Points: " + GameManager.Instance.pointsEarnedThisRound + " / " + GameManager.Instance.maxPointsToWinRound;
+
         moneyText.text = "+" + GameManager.Instance.moneyEarnedThisRound + "$";
     }
 

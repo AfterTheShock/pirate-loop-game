@@ -1,4 +1,6 @@
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Localization;
 
 [CreateAssetMenu(fileName = "Card", menuName = "ScriptableObjects/NewCard")]
 public class CardScriptableObject : ScriptableObject
@@ -18,6 +20,9 @@ public class CardScriptableObject : ScriptableObject
     public CardType cardType;
 
     public PlacementObject placementObject;
+
+    public LocalizedString cardNameLocalized = new LocalizedString();
+    public LocalizedString cardDescriptionLocalized = new LocalizedString();
 }
 
 public enum CardType

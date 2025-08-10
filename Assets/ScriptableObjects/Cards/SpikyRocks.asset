@@ -22,3 +22,24 @@ MonoBehaviour:
   placementObject:
     objectPrefab: {fileID: 5077759077619936721, guid: 769cd0e73d3c7d4429f9e7c0b9efa2ae, type: 3}
     objectPrefabPreview: {fileID: 3860309333678786259, guid: 6c14f919e6aeea44fa196b947d2088bc, type: 3}
+  cardNameLocalized:
+    m_TableReference:
+      m_TableCollectionName: GUID:600ab5ff45c36eb43ad43fd2af877293
+    m_TableEntryReference:
+      m_KeyId: 15990946242560
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  cardDescriptionLocalized:
+    m_TableReference:
+      m_TableCollectionName: GUID:f09ed24dc5c2ea04782c28678f60bc46
+    m_TableEntryReference:
+      m_KeyId: 1004698050560
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

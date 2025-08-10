@@ -1,5 +1,7 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class PauseMenuManager : MonoBehaviour
@@ -16,6 +18,9 @@ public class PauseMenuManager : MonoBehaviour
     [SerializeField] Slider masterSlider;
 
     [SerializeField] GameObject mainMenuToTurnOn;
+
+    [SerializeField] TMP_Dropdown languageDropdown;
+
     private void Start()
     {
         menuHolder.SetActive(false);
@@ -30,11 +35,12 @@ public class PauseMenuManager : MonoBehaviour
         SFXSlider.value = Mathf.Pow(10, sfxVolume / 20);
         ambianceSlider.value = Mathf.Pow(10, ambianceVolume / 20);
 
+        InicializeLanguageDropdown();
     }
 
     private void Update()
     {
-        
+
 
         if (!isInMenu && Time.timeScale != 0 && Input.GetKeyDown(KeyCode.Escape)) EnterMenu();
         else
@@ -43,11 +49,11 @@ public class PauseMenuManager : MonoBehaviour
 
     public void OnChangeMusicSlider()
     {
-        
+
         float volume = Mathf.Log10(musicSlider.value) * 20; // Convert from dB to linear for slider
 
         masterMixer.SetFloat("MusicVolume", volume);
-        
+
     }
 
     public void OnChangeSFXSlider()
@@ -91,7 +97,17 @@ public class PauseMenuManager : MonoBehaviour
         isInMenu = false;
         menuHolder.SetActive(false);
 
-        if(mainMenuToTurnOn != null) mainMenuToTurnOn.SetActive(true);
+        if (mainMenuToTurnOn != null) mainMenuToTurnOn.SetActive(true);
     }
 
+    public void InicializeLanguageDropdown()
+    {
+        languageDropdown.value = LocalizationSettings.AvailableLocales.Locales.IndexOf(LocalizationSettings.SelectedLocale);
+        languageDropdown.value = 1;
+    }
+
+    public void ChangeLanguageFromDropdown(int index)
+    {
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
+    }
 }

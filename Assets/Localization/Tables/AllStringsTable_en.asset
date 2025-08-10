@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: AllStringsTable_en
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 600ab5ff45c36eb43ad43fd2af877293, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 275463774208
+    m_Localized: Play
+    m_Metadata:
+      m_Items: []
+  - m_Id: 383685206016
+    m_Localized: Options
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2972116033536
+    m_Localized: Master
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3047001137152
+    m_Localized: Music
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3257282568192
+    m_Localized: Effects
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3290438541312
+    m_Localized: Ambiance
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3518340243456
+    m_Localized: Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4382295564288
+    m_Localized: Back
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15787753185280
+    m_Localized: Bomb
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15841633214464
+    m_Localized: Flamethrower
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15879516168192
+    m_Localized: Tresure Chest
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15901561430016
+    m_Localized: Ballista
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15931861082112
+    m_Localized: Ghost Ship
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15971690192896
+    m_Localized: Iceberg
+    m_Metadata:
+      m_Items: []
+  - m_Id: 15990946242560
+    m_Localized: Spiky Rocks
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16021317197824
+    m_Localized: Catapult
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16066447908864
+    m_Localized: Broken Ship
+    m_Metadata:
+      m_Items: []
+  - m_Id: 16858231840768
+    m_Localized: Bottle of Ron
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42679659110400
+    m_Localized: Shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42874073489408
+    m_Localized: Main Menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 42560951918592
+    m_Localized: Exit Shop
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44396748447744
+    m_Localized: Some cards just stun or slow down the ship
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44466835267584
+    m_Localized: Some damage the ship and give you points in return
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44479518842880
+    m_Localized: Get to the target points per loop to progress
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44489954271232
+    m_Localized: Try to test out every card
+    m_Metadata:
+      m_Items: []
+  - m_Id: 44500221927424
+    m_Localized: Good luck!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49153185652736
+    m_Localized: Pause
+    m_Metadata:
+      m_Items: []
+  - m_Id: 49629381763072
+    m_Localized: Resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427389166002176
+    m_Localized: Hold the SPACE key to speed time
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427751860051968
+    m_Localized: Points
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Tables;
 using UnityEngine.UI;
 
 public class CardDataManager : MonoBehaviour
@@ -30,6 +32,11 @@ public class CardDataManager : MonoBehaviour
         //stock = Random.Range(cardScriptableObject.minStock, cardScriptableObject.maxStock + 1);
 
         SetCardVisuals();
+    }
+
+    private void OnEnable()
+    {
+        cardScriptableObject.cardNameLocalized.StringChanged += UpdateCardName;
     }
 
     private void OnDestroy()
@@ -73,7 +80,17 @@ public class CardDataManager : MonoBehaviour
     
     private void SetCardVisuals()
     {
-        if (cardNameText != null) cardNameText.text = cardScriptableObject.cardName;
+        if (cardNameText != null) 
+        {
+            if (CheckIfLocalizedStringIsAssinged(cardScriptableObject.cardNameLocalized)) 
+            { 
+                cardNameText.text = cardScriptableObject.cardNameLocalized.GetLocalizedString();
+            }
+            else
+            {
+                cardNameText.text = cardScriptableObject.cardName;
+            }
+        } 
 
         if (cardPriceText != null) cardPriceText.text = cardScriptableObject.cardPrice.ToString() + "$";
 
@@ -90,7 +107,17 @@ public class CardDataManager : MonoBehaviour
 
     public void OnHoverOverCard()
     {
-        CardFlotatingDescriptionManager.Instance.descriptionText.text = cardScriptableObject.cardDescription;
+        string cardDescription;
+        if (CheckIfLocalizedStringIsAssinged(cardScriptableObject.cardDescriptionLocalized))
+        {
+            cardDescription = cardScriptableObject.cardDescriptionLocalized.GetLocalizedString();
+        }
+        else
+        {
+            cardDescription = cardScriptableObject.cardDescription;
+        }
+
+        CardFlotatingDescriptionManager.Instance.descriptionText.text = cardDescription;
         CardFlotatingDescriptionManager.Instance.thisChild.gameObject.SetActive(true);
         CardFlotatingDescriptionManager.Instance.thisCanvasGroup.alpha = 0;
     }
@@ -98,5 +125,26 @@ public class CardDataManager : MonoBehaviour
     public void OnHoverOutsideCard()
     {
         CardFlotatingDescriptionManager.Instance.thisChild.gameObject.SetActive(false);
+    }
+
+    private bool CheckIfLocalizedStringIsAssinged(LocalizedString myString)
+    {
+        return myString.TableReference.ReferenceType != TableReference.Type.Empty &&
+            myString.TableEntryReference.ReferenceType != TableEntryReference.Type.Empty;
+    }
+
+    private void UpdateCardName(string name)
+    {
+        if (cardNameText != null)
+        {
+            if (CheckIfLocalizedStringIsAssinged(cardScriptableObject.cardNameLocalized))
+            {
+                cardNameText.text = cardScriptableObject.cardNameLocalized.GetLocalizedString();
+            }
+            else
+            {
+                cardNameText.text = cardScriptableObject.cardName;
+            }
+        }
     }
 }

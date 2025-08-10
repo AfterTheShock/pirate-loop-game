@@ -12,5 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/BaduiScene 2.unity
     guid: db1b457e5a69b6946a324837771ad81f
   m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 5c2367f2561fd0d4babd0f15d9e4c77d, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.localization.settings: {fileID: 11400000, guid: c37b439533eb9c64a945ec2863a23688, type: 2}
   m_UseUCBPForAssetBundles: 0
